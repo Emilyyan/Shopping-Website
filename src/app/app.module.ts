@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 import {
   MatAutocompleteModule,
@@ -39,17 +40,23 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
+  MatToolbar,
 } from '@angular/material';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
