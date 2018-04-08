@@ -1,14 +1,19 @@
 <div>
     <mat-toolbar class="fixed-header" color="primary">
-        Shopping
-        <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-        <mat-menu #menu="matMenu" yPosition="below" xPosition="after" overlapTrigger="false">
-          <button mat-menu-item>Item 1</button>
-          <button mat-menu-item>Item 2</button>
-        </mat-menu>
-
-        <button mat-button class="btn-right">Sign In</button>
-        <button mat-button class="btn-right">Sign Up</button>
+        <mat-toolbar-row>
+            <a mat-button routerLink="/"><mat-icon>home</mat-icon></a>
+            <button mat-button [matMenuTriggerFor]="menu" >Menu</button>
+            <mat-menu #menu="matMenu" yPosition="below" xPosition="after" overlapTrigger="false">
+                <button mat-menu-item>Item 1</button>
+                <button mat-menu-item>Item 2</button>
+            </mat-menu>
+            
+            <span class="spacer"></span>
+            <a mat-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></a>
+            <a mat-button routerLink="/signin">Sign In</a>
+            <a mat-button routerLink="/signup">Sign Up</a>
+        </mat-toolbar-row> 
     </mat-toolbar>
-
 </div>
+<router-outlet></router-outlet>
+

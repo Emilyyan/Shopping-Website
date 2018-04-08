@@ -5,12 +5,6 @@
     position: fixed;
     z-index: 999;
 }
-
-.btn-right{
-    position: absolute;
-    right: 0;
-}
-
-button{
-    margin-left: 1em;
+.spacer {
+    flex: 1 1 auto;
 }
