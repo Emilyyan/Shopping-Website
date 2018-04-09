@@ -1,6 +1,12 @@
-var http = require("http");
-http.createServer(function(request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("Hello World");
-  response.end();
-}).listen(process.env.PORT || 8081);
+
+
+var express = require('express');
+var app = express();
+
+app.use(express.static('dist'));
+
+var server = app.listen(8080, function () {
+   var host = server.address().address
+   var port = server.address().port
+   console.log("Example app listening at http://%s:%s", host, port)
+})
