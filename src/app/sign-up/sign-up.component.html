@@ -1,9 +1,15 @@
 <mat-dialog-content>  
-    <h2 mat-dialog-title>Please sign in</h2>
+    <h2 mat-dialog-title>Register with us</h2>
     <form>
         <mat-form-field class="example-container">
             <input matInput placeholder="Enter your email" [formControl]="email" required>
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="FirstName" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="LastName" required>
         </mat-form-field>
         <br>
         <mat-form-field  class="example-container">
@@ -12,11 +18,10 @@
         </mat-form-field>
 
         <mat-dialog-actions>
-            <button mat-raised-button color="primary" [mat-dialog-close]="true">Sign In</button>
+            <button mat-raised-button color="primary" [mat-dialog-close]="true">Register</button>
             <button mat-button mat-dialog-close>Cancel</button>
             <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
             
         </mat-dialog-actions>
     </form>
 </mat-dialog-content>
-
