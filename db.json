@@ -2,18 +2,24 @@
    "Users": [ 
      {
        "id": 1,
-       "Email": "test1@gmail.com",
-       "hash": "12344321"
+       "email": "test1@gmail.com",
+       "firstName": "Lucy",
+       "lastName": "Smith", 
+       "password": "12344321"
      },
      {
        "id": 2,
-       "Email": "test222@qq.com",
-       "hash": "1234555"
+       "email": "test222@qq.com",
+       "firstName": "Naoto",
+       "lastName": "Lee", 
+       "password": "1234555"
      },
      {
        "id": 3,
-       "Email": "sp@gmail.com",
-       "hash": "1234555321"
+       "email": "sp@gmail.com",
+       "firstName": "Hiroomi",
+       "lastName": "Tasaka", 
+       "password": "1234555321"
      }
    ] 
 }
