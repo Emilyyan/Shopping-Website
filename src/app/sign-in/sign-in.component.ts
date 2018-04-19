@@ -18,7 +18,7 @@ export class SignInComponent{
         this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-
+/*
   name:string = '';
   age:number;
   found:boolean;
@@ -39,6 +39,6 @@ export class SignInComponent{
       }
     )
   }
-  
+  */
 }
 
