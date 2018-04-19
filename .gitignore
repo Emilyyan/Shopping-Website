@@ -7,7 +7,7 @@ node_modules/*
 
 >>>>>>> 852b1407bd3ceff7e213c12c490e203403fe606a
 # compiled output
-/dist
+# /dist
 /dist-server
 /tmp
 /out-tsc

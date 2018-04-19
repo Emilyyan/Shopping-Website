@@ -13,6 +13,7 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   MatAutocompleteModule,
@@ -78,7 +79,8 @@ import {
     ReactiveFormsModule,
     MatListModule,
     FormsModule,
-    MatTableModule 
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
