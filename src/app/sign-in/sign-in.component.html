@@ -1,5 +1,18 @@
-<br><br><br><br><br><br><br><br><br>
-<p >
-  sign-in works!
-</p>
-
+<h2 mat-dialog-title>Sign In</h2>
+<mat-dialog-content>
+  This is a sign-in dialog
+  <form>
+    <mat-form-field class="example-container">
+      <input matInput placeholder="Favorite food" value="Sushi" required>
+    </mat-form-field>
+  
+    <mat-form-field class="example-container">
+      <textarea matInput placeholder="Leave a comment"></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button [mat-dialog-close]="true">Close</button>
+</mat-dialog-actions>

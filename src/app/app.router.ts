@@ -10,15 +10,10 @@ const appRoutes: Routes = [
       component: NavbarComponent,
       children: [
         { path: '', component: HomeComponent, pathMatch: 'full'},
-        { path: 'signin', component: SignInComponent}
+        { path: 'signin', component: SignInComponent},
+        { path: 'cart', component: ShoppingcartComponent}
       ]
-    },
-    {
-        path: '',
-        children: [
-          { path: 'cart', component: ShoppingcartComponent}
-        ]
-      }
+    }
   ];
 
 export const routing = RouterModule.forRoot(appRoutes);

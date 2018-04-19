@@ -1,3 +1,32 @@
-<p>
-  shoppingcart works!
-</p>
+<div class="content">
+  <h3>Shopping Cart</h3>
+  <mat-grid-list cols="3" rowHeight="250px">
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <form>
+            <mat-list>
+              
+              <mat-list-item>Item 1
+                <mat-grid-list cols="4" rowHeight="auto">
+                  <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    aaa
+                  </mat-grid-tile>
+                  <mat-grid-tile [colspan]="3" [rowspan]="1">
+                      bbb
+                  </mat-grid-tile>
+                </mat-grid-list>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Item 2</mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>Item 3</mat-list-item>
+            </mat-list>
+          </form>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+</div>
+
+  

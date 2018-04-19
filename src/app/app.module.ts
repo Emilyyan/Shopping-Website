@@ -48,9 +48,6 @@ import {
   MatToolbar,
 } from '@angular/material';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,9 +67,13 @@ import {
     MatCardModule,
     MatDividerModule,
     MatIconModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatListModule,
     routing
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[SignInComponent]
 })
 export class AppModule { }

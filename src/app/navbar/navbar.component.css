@@ -8,3 +8,14 @@
 .spacer {
     flex: 1 1 auto;
 }
+
+.mdl-badge[data-badge]::after{
+  font-size: .3em;
+  width: 2em;
+  height: 2em;
+}
+
+.mdl-badge[data-badge]::after {
+  top: -1em;
+  right: -1em;
+}
