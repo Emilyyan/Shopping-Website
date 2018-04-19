@@ -1,6 +1,11 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 local-env/*
+<<<<<<< HEAD
+=======
+node_modules/*
+
+>>>>>>> 852b1407bd3ceff7e213c12c490e203403fe606a
 # compiled output
 /dist
 /dist-server

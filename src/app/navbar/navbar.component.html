@@ -9,9 +9,12 @@
             </mat-menu>
             
             <span class="spacer"></span>
-            <a mat-icon-button routerLink="/cart"><mat-icon class="mdl-badge" data-badge="11" >shopping_cart</mat-icon></a>
-            <a mat-button (click)="openDialog()">Sign In</a>
-            <a mat-button routerLink="/signup">Sign Up</a>
+            <a mat-icon-button routerLink="/cart"><mat-icon class="mdl-badge" data-badge="6">shopping_cart</mat-icon></a>
+            <!--<a mat-button routerLink="/signin">Sign In</a>-->
+            <!--<a mat-button routerLink="/signup">Sign Up</a>-->
+            <button mat-button (click)="openSignin()">Sign In</button>
+            <button mat-button (click)="openSignup()">Sign Up</button>
+            
         </mat-toolbar-row> 
     </mat-toolbar>
 </div>

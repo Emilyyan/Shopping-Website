@@ -1,7 +1,19 @@
+.parent-container{
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .example-card {
     max-width: 250px;
+    min-width: 200px;
+    flex-basis: 30%;
+    margin-bottom: 2em;
 }
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+.in-stock{
+    color: #2e7b32;
+}
+.out-of-stock{
+    color: #d32f2f;
 }

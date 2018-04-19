@@ -1,0 +1,21 @@
+.page-container{
+    display: flex;
+}
+.left-container{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    padding: 0 2em;
+}
+.left-header{
+    min-height: 64px;
+    padding: 8px 24px 0;
+}
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+.right-container{
+    flex: 1;
+}

@@ -7,10 +7,12 @@ import { routing } from './app.router';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
-import {DomSanitizer} from '@angular/platform-browser';
-import {MatIconRegistry} from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import {
   MatAutocompleteModule,
@@ -46,7 +48,10 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatToolbar,
+  MatIconRegistry
 } from '@angular/material';
+
+
 
 @NgModule({
   declarations: [
@@ -55,6 +60,7 @@ import {
     SignInComponent,
     HomeComponent,
     ShoppingcartComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -67,13 +73,18 @@ import {
     MatCardModule,
     MatDividerModule,
     MatIconModule,
-    MatChipsModule,
+    routing,
     MatDialogModule,
+    ReactiveFormsModule,
     MatListModule,
-    routing
+    FormsModule,
+    MatTableModule 
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[SignInComponent]
+  entryComponents: [
+    SignInComponent, 
+    SignUpComponent
+  ]
 })
 export class AppModule { }

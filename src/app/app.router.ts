@@ -10,7 +10,7 @@ const appRoutes: Routes = [
       component: NavbarComponent,
       children: [
         { path: '', component: HomeComponent, pathMatch: 'full'},
-        { path: 'signin', component: SignInComponent},
+        //{ path: 'signin', component: SignInComponent},
         { path: 'cart', component: ShoppingcartComponent}
       ]
     }

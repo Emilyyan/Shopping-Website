@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {FormControl, Validators} from '@angular/forms';
 
-
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.css']
 })
-export class SignInComponent{
+export class SignUpComponent{
+
+  constructor() { }
+  
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
 
@@ -16,6 +18,4 @@ export class SignInComponent{
     return this.email.hasError('required') ? 'You must enter a value' :
         this.email.hasError('email') ? 'Not a valid email' : '';
   }
-  
 }
-

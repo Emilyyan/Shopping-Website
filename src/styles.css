@@ -13,6 +13,7 @@ h1 {
   }
   body {
     margin: 2em;
+    overflow-x: hidden;
   }
   body, input[text], button {
     color: #888;
