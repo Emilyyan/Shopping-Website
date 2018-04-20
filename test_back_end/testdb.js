@@ -7,6 +7,8 @@ var app = express();
 var MongoClient = require('mongodb').MongoClient;
 var url = 'mongodb://localhost:27017/project';
 
+app.use(express.static('dist'));
+
 
 app.get('/get-users', function (req, res) {
    
