@@ -70,6 +70,6 @@
        "price": 12.99, 
        "stock": 15, 
        "desc": "Item introduction goes here ...", 
-       "img": "https://material.angular.io/assets/img/examples/shiba2.jpg"},
+       "img": "https://material.angular.io/assets/img/examples/shiba2.jpg"}
    ]
 }
