@@ -28,6 +28,7 @@ export class SignInComponent{
     .subscribe(
       (data:any[]) => {
         if(data.length) {
+          console.log(user.password);
           this.firstName = data[0].firstName;
           this.lasttName = data[0].lastName;
           console.log(this.firstName+this.lasttName);
