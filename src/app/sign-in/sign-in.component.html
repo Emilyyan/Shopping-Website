@@ -1,18 +1,19 @@
 <mat-dialog-content>  
     <h2 mat-dialog-title>Please sign in</h2>
-    <form>
+    <form #signin="ngForm" (ngSubmit)="onSubmit(signin.value)">
         <mat-form-field class="example-container">
-            <input matInput placeholder="Enter your email" [formControl]="email" required>
+            <input gModel name="email" matInput placeholder="Enter your email" [formControl]="email" required>
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
         <br>
         <mat-form-field  class="example-container">
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
+            <input matInput ngModel name="password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
         </mat-form-field>
 
         <mat-dialog-actions>
-            <button mat-raised-button color="primary" [mat-dialog-close]="true">Sign In</button>
+            <!--<button mat-raised-button color="primary" [mat-dialog-close]="true">Sign In</button>-->
+            <button mat-raised-button color="primary" type="submit">Sign In</button>
             <button mat-button mat-dialog-close>Cancel</button>
             <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
             

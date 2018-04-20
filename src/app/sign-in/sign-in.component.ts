@@ -18,27 +18,23 @@ export class SignInComponent{
         this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-/*
-  name:string = '';
-  age:number;
-  found:boolean;
+  password: string = "";
+  firstName : string = "";
+  lastName: string = "";
 
   constructor(private httpClient:HttpClient){  }
-  onNameKeyUp(event:any){
-    this.name = event.target.value;
-    this.found = false;
-  }
-  getProfile(){
-    this.httpClient.get(`https://my-json-server.typicode.com/techsithgit/json-faker-directory/profiles/?name=${this.name}`)
+  onSubmit = function(user) {
+    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users/?email=${this.email.value}`)
     .subscribe(
       (data:any[]) => {
         if(data.length) {
-          this.age = data[0].age;
-          this.found = true;
+          this.firstName = data[0].firstName;
+          this.lasttName = data[0].lastName;
+          console.log(this.firstName+this.lasttName);
         }
       }
     )
+
   }
-  */
 }
 
