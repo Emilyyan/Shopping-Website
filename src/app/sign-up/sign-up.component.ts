@@ -26,7 +26,7 @@ export class SignUpComponent{
     if (this.email.valid) {
       //hash logic may go here
 
-      
+
       this.httpClient.post(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users`,
       {
         Email: this.email.value,
