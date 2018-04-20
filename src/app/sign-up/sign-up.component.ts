@@ -27,12 +27,12 @@ export class SignUpComponent{
       //hash logic may go here
 
       
-      this.httpClient.post(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users`,
+      this.httpClient.get(`localhost:8081/register-users`,
       {
-        Email: this.email.value,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        password: user.password//this will be replaced by hash
+         email: this.email.value,
+         firstName: user.firstName,
+         lastName: user.lastName,
+         password: user.password//this will be replaced by hash
       })
       .subscribe(
         (data:any) => {
