@@ -521,8 +521,8 @@ var SignUpComponent = /** @class */ (function () {
         this.onSubmit = function (user) {
             if (this.email.valid) {
                 //hash logic may go here
-                this.httpClient.post("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users", {
-                    Email: this.email.value,
+                this.httpClient.get("127.0.0.1:8081/register-users", {
+                    email: this.email.value,
                     firstName: user.firstName,
                     lastName: user.lastName,
                     password: user.password //this will be replaced by hash

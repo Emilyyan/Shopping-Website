@@ -41,8 +41,6 @@ app.get('/register-users', function (req, res) {
        password : res.query.password
    };
    console.log(myobj);
-   res.end(JSON.stringify(myobj));
-
 
 	MongoClient.connect(url, function (err, db) {
 		if(err) throw err;
