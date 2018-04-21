@@ -24,7 +24,7 @@ export class SignInComponent{
 
   constructor(private httpClient:HttpClient){  }
   onSubmit = function(user) {
-    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users/?email=${this.email.value}`)
+    this.httpClient.get(`/get-users`)
     .subscribe(
       (data:any[]) => {
         if(data.length) {

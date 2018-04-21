@@ -26,13 +26,12 @@ export class SignUpComponent{
     if (this.email.valid) {
       //hash logic may go here
 
-      
-      this.httpClient.get(`127.0.0.1:8081/register-users`)
+      //this.http.post(url, {moo:"foo",goo:"loo"}).subscribe(res => console.log(res.json()));
+     this.httpClient.post(`/register-users`, {email: "testing@gmail.com", first_name: "post", last_name: "hihi", password: "123456"})
       .subscribe(
-        (data:any) => {
-          console.log(data);
-        }
-      )
+        res => console.log(res)
+      );
+      
     }
   } 
 }
