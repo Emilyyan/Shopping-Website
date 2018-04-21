@@ -1,0 +1,73 @@
+<div class="content">
+
+  <h4>Checkout</h4>
+
+  <mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper">
+    <mat-step [stepControl]="firstFormGroup">
+      <h5>Shipping</h5>
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Shipping Info</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="First name" formControlName="fname" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last name" formControlName="lname" required>
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <input matInput placeholder="Address 1" formControlName="addr" required>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Address 2">
+          </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <mat-select placeholder="Choose your state" formControlName="state" required>
+            <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="City" formControlName="city" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <input matInput #zipcode placeholder="Zip Code" formControlName="zip" maxlength="5" required>
+          <mat-hint align="end">{{zipcode.value.length}} / 5</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="tel" matInput placeholder="Phone Number" formControlName="phone" maxlength="10" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <h5>Payment</h5>
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Payment Info</ng-template>
+        <p>* Sorry! We only accept payment via Paypal by this point.</p>
+        <mat-radio-group formControlName="secondCtrl" required>
+          <mat-radio-button value="1" disabled="true">Credit Card</mat-radio-button>
+          <mat-radio-button value="2">Paypal</mat-radio-button>
+        </mat-radio-group>
+        <br><br>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Place Order</ng-template>
+      <h5>Review Your Order</h5>
+      
+      <div>
+        <button mat-button (click)="onSubmit()">Place your order</button>
+        <button mat-button (click)="stepper.reset()">Clear form</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>
+

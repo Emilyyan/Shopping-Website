@@ -30,7 +30,7 @@ export class SignInComponent{
         if(data.length) {
           this.firstName = data[0].firstName;
           this.lasttName = data[0].lastName;
-          console.log(this.firstName+this.lasttName);
+          console.log(this.firstName+this.lastName);
         }
       }
     )

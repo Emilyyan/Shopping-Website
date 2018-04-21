@@ -2,7 +2,7 @@
     <h2 mat-dialog-title>Please sign in</h2>
     <form #signin="ngForm" (ngSubmit)="onSubmit(signin.value)">
         <mat-form-field class="example-container">
-            <input gModel name="email" matInput placeholder="Enter your email" [formControl]="email" required>
+            <input ngModel name="email" matInput placeholder="Enter your email" [formControl]="email" required>
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
         <br>

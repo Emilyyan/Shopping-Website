@@ -10,6 +10,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -61,7 +62,8 @@ import {
     SignInComponent,
     HomeComponent,
     ShoppingcartComponent,
-    SignUpComponent
+    SignUpComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,11 @@ import {
     MatListModule,
     FormsModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent],
