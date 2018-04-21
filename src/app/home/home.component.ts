@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material';
+import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class HomeComponent implements OnInit {
   products = [];
-  constructor(private httpClient:HttpClient){  }
+  constructor(private httpClient:HttpClient, public dialog: MatDialog){  }
   
 
   ngOnInit() {
@@ -22,6 +24,16 @@ export class HomeComponent implements OnInit {
         }
       }
     )
+  }
+
+  openDetail(PID) {
+    const dialogRef = this.dialog.open(ProductDetailComponent, {
+      height: '60%',
+      width: '60%',
+      data: {
+        PID: PID
+      }
+    });
   }
 
 }

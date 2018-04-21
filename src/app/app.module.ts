@@ -10,6 +10,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -54,6 +55,7 @@ import {
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +63,8 @@ import {
     SignInComponent,
     HomeComponent,
     ShoppingcartComponent,
-    SignUpComponent
+    SignUpComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,8 @@ import {
   bootstrap: [AppComponent],
   entryComponents: [
     SignInComponent, 
-    SignUpComponent
+    SignUpComponent,
+    ProductDetailComponent
   ]
 })
 export class AppModule { }
