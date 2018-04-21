@@ -11,9 +11,19 @@ var url = 'http://localhost:8081';
 describe('test local server', function () {
 
   
-  it('expected to return return 200 status code and information of all users in database', function (done) {
+  it('expected to return 200 status code and information of all users in database', function (done) {
     chai.request(url)
       .get('/get-users')
+      .end(function (err, res) {
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
+
+  it('expected to return 200 status code and information of all users in database', function (done) {
+    chai.request(url)
+      .get('/get-users')
+      .type('form')
       .end(function (err, res) {
         expect(res).to.have.status(200);
         done();
@@ -34,6 +44,7 @@ describe('test local server', function () {
     chai.request(url)
       .post('/register-users')
       .type('form')
+      .set('content-type', 'application/x-www-form-urlencoded')
       .send({email: "testing@gmail.com", first_name: "post", last_name: "hihi", password: "123456"})
       .end(function (err, res) {
         expect(res).to.have.status(201);
@@ -54,7 +65,74 @@ describe('test local server', function () {
       });
   });
 
-  
+  it('expected to return 200 status code and information of all products in database', function (done) {
+    chai.request(url)
+      .get('/get-products')
+      .end(function (err, res) {
+        expect(res).to.have.status(200);
+        done();
+      });
+  });
+
+  it('expected to return 200 status code and information of 6 products in database', function (done) {
+    chai.request(url)
+      .get('/get-products')
+      .end(function (err, res, body) {
+			res.on('data', function (chunk) {
+    		expect(data).to.have.lengthOf(6);
+    		console.log(data);
+  		});
+        done();
+      });
+  });
+
+
+  it('expected to return 200 status code and information of 0 orders in database', function (done) {
+    chai.request(url)
+      .get('/get-orders')
+      .end(function (err, res, body) {
+			res.on('data', function (chunk) {
+    		expect(data).to.be.an('object').that.is.empty;
+    		console.log(data);
+  		});
+        done();
+      });
+  });
+
+
+  it('expected to return 201 status code', function (done) {
+    chai.request(url)
+      .post('/get-orders')
+      .type('form')
+      .send({email: "testing@gmail.com", first_name: "post", last_name: "hihi", password: "123456"})
+      .end(function (err, res) {
+        expect(res).to.have.status(201);
+        done();
+      });
+  });
+
+  it('expected to return 400 status code', function (done) {
+    chai.request(url)
+      .post('/register-users')
+      .type('form')
+      .send({email: "testing@gmail.com", first_name: "post",  password: "123456"})
+      .end(function (err, res) {
+        expect(res).to.have.status(400);
+        done();
+      });
+  });
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
