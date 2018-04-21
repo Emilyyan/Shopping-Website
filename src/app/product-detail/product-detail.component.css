@@ -1,0 +1,20 @@
+mat-grid-tile {
+    background: lightblue;
+  }
+
+
+.page-container{
+    display: flex;
+}
+
+.left-container{
+    flex: 2;
+}
+
+.right-container{
+    flex: 2;
+}
+
+.product-img {
+    max-width: 400px;
+}

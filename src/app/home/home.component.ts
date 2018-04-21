@@ -1,21 +1,43 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material';
+import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
-
-  constructor() { }
-
-  products = PRODUCT_DATA;
+  products = [];
+  constructor(private httpClient:HttpClient, public dialog: MatDialog){  }
+  
 
   ngOnInit() {
+    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Products`)
+    .subscribe(
+      (data:any[]) => {
+        if(data.length) {
+          console.log(data);
+          this.products = data;
+        }
+      }
+    )
+  }
+
+  openDetail(PID) {
+    const dialogRef = this.dialog.open(ProductDetailComponent, {
+      height: '60%',
+      width: '60%',
+      data: {
+        PID: PID
+      }
+    });
   }
 
 }
-
+/*
 export interface Product {
   id: number;
   name: string;
@@ -38,4 +60,4 @@ const PRODUCT_DATA: Product[] = [
   {id: 10, name: 'Game 10', price: 16.99, stock: 15, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
   {id: 11, name: 'Game 11', price: 16.99, stock: 35, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
   {id: 12, name: 'Game 12', price: 10.88, stock: 15, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'}
-];
+];*/

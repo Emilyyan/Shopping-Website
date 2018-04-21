@@ -26,19 +26,11 @@ export class SignUpComponent{
     if (this.email.valid) {
       //hash logic may go here
 
-      
-      this.httpClient.post(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users`,
-      {
-        Email: this.email.value,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        password: user.password//this will be replaced by hash
-      })
+     this.httpClient.post(`/register-users`, {email: "testing@gmail.com", first_name: "post", last_name: "hihi", password: "123456"})
       .subscribe(
-        (data:any) => {
-          console.log(data);
-        }
-      )
+        res => console.log(res)
+      );
+      
     }
   } 
 }

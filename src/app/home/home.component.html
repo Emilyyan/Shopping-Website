@@ -20,7 +20,7 @@
           <p>{{p.desc}}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button color="primary">Details
+          <button mat-button color="primary" (click)="openDetail(p.id)">Details
             <mat-icon>open_in_new</mat-icon>
           </button>
           <button mat-button color="accent">Add to Cart

@@ -24,10 +24,11 @@ export class SignInComponent{
 
   constructor(private httpClient:HttpClient){  }
   onSubmit = function(user) {
-    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users/?email=${this.email.value}`)
+    this.httpClient.get(`/get-users`)
     .subscribe(
       (data:any[]) => {
         if(data.length) {
+          console.log(user.password);
           this.firstName = data[0].firstName;
           this.lasttName = data[0].lastName;
           console.log(this.firstName+this.lastName);
