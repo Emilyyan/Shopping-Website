@@ -26,32 +26,13 @@ app.get('/get-users', function (req, res) {
           dbo.collection("users").find({}).toArray(function(err, result) { 
   	  		if (err) throw err;
   	  		   res.status(200).json(result);
-  	 		db.close();
+  	 		  db.close();
           });
       });
 
 });
 
 
-
-
-/*
-app.post("/register-users", function(req, res) {
-  var myobj = req.body;
-
-  if (!req.body.name) {
-    handleError(res, "Invalid user input", "Must provide a name.", 400);
-  }
-
-  db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to create new contact.");
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
-});
-*/
 
 
 // signup, insert a document to the database
@@ -73,8 +54,7 @@ app.post('/register-users', function (req, res) {
         console.log("connected");
         var dbo = db.db("project");
         dbo.collection("users").insertOne(myobj, function(err, result) {
-        if (err) throw err;
-          res.status(201).json(myobj);
+        res.status(201).json(myobj);
         db.close();
         });
     });
