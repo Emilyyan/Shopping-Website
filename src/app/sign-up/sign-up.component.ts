@@ -26,7 +26,6 @@ export class SignUpComponent{
     if (this.email.valid) {
       //hash logic may go here
 
-      //this.http.post(url, {moo:"foo",goo:"loo"}).subscribe(res => console.log(res.json()));
      this.httpClient.post(`/register-users`, {email: "testing@gmail.com", first_name: "post", last_name: "hihi", password: "123456"})
       .subscribe(
         res => console.log(res)
