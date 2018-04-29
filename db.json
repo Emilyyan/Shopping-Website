@@ -5,21 +5,51 @@
        "email": "test1@gmail.com",
        "firstName": "Lucy",
        "lastName": "Smith", 
-       "password": "12344321"
+       "password": "12344321",
+       "address": {
+           "fname": "Yan",
+           "lname": "Emily",
+           "addr_1": "1885 Folsom St",
+           "addr_2": "APT 123",
+           "state": "Colorado",
+           "city": "Boulder",
+           "zip": 80302,
+           "phone": 0123456789
+       }
      },
      {
        "id": 2,
        "email": "test222@qq.com",
        "firstName": "Naoto",
        "lastName": "Lee", 
-       "password": "1234555"
+       "password": "1234555",
+       "address": {
+           "fname": "Evans",
+           "lname": "Paul",
+           "addr_1": "333 Folsom St",
+           "addr_2": "APT 53",
+           "state": "Colorado",
+           "city": "Boulder",
+           "zip": 80302,
+           "phone": 8738592738
+       }
      },
      {
        "id": 3,
        "email": "sp@gmail.com",
        "firstName": "Hiroomi",
        "lastName": "Tasaka", 
-       "password": "1234555321"
+       "password": "1234555321",
+       "address": {
+           "fname": "Carlos",
+           "lname": "Stoneman",
+           "addr_1": "1954 Holden Street",
+           "addr_2": "APT 1773",
+           "state": "California",
+           "city": "San Diego",
+           "zip": 92139,
+           "phone": 6192673054
+       }
      }
    ],
    "Products": [
