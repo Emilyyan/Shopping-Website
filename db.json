@@ -5,21 +5,45 @@
        "email": "test1@gmail.com",
        "firstName": "Lucy",
        "lastName": "Smith", 
-       "password": "12344321"
+       "password": "12344321",
+       "address": {
+           "addr_1": "1885 Folsom St",
+           "addr_2": "APT 123",
+           "state": "Colorado",
+           "city": "Boulder",
+           "zip": 80302,
+           "phone": 5773827163
+       }
      },
      {
        "id": 2,
        "email": "test222@qq.com",
        "firstName": "Naoto",
        "lastName": "Lee", 
-       "password": "1234555"
+       "password": "1234555",
+       "address": {
+           "addr_1": "333 Folsom St",
+           "addr_2": "APT 53",
+           "state": "Colorado",
+           "city": "Boulder",
+           "zip": 80302,
+           "phone": 8738592738
+       }
      },
      {
        "id": 3,
        "email": "sp@gmail.com",
        "firstName": "Hiroomi",
        "lastName": "Tasaka", 
-       "password": "1234555321"
+       "password": "1234555321",
+       "address": {
+           "addr_1": "1954 Holden Street",
+           "addr_2": "APT 1773",
+           "state": "California",
+           "city": "San Diego",
+           "zip": 92139,
+           "phone": 6192673054
+       }
      }
    ],
    "Products": [
@@ -71,5 +95,57 @@
        "stock": 15, 
        "desc": "Item introduction goes here ...", 
        "img": "https://material.angular.io/assets/img/examples/shiba2.jpg"}
+   ],
+   "Cart": [
+      {
+         "id": 1,
+         "product": "Game 2", 
+         "quantity": 2, 
+         "price": 12.99
+      },
+      {
+         "id": 2,
+         "product": "Game 5", 
+         "quantity": 1, 
+         "price": 5.99
+      },
+      {
+         "id": 3,
+         "product": "Game 6",
+         "quantity": 3, 
+         "price": 10.12
+      }
+   ],
+    "Orders": [
+      {
+         "id": 1,
+         "orderNumber": 1920374829,
+         "date": "2018-04-23 11:30:28",
+         "product": "Game 2", 
+         "quantity": 2, 
+         "price": 12.99,
+         "total_prices": 26,
+         "status": "shipped"
+      },
+      {
+         "id": 2,
+         "orderNumber": 3849273829,
+         "date": "2018-01-08 22:17:04",
+         "product": "Game 5", 
+         "quantity": 1, 
+         "price": 5.99,
+         "total_prices": 5.99,
+         "status": "delivered"
+      },
+      {
+         "id": 3,
+         "orderNumber": 3593728492,
+         "date": "2018-02-17 09:22:45",
+         "product": "Game 6",
+         "quantity": 3, 
+         "price": 10.12,
+         "total_prices": 30.36,
+         "status": "processing"
+      }
    ]
 }

@@ -1,0 +1,142 @@
+<div style="text-align: center;">
+  <div class="content">
+    <mat-card class="outline">
+        <mat-card-content>
+          <h2 class="example-h2">Hi</h2>
+          <mat-tab-group class="demo-tab-group">
+            <mat-tab label="Account Information">
+              <div class="demo-tab-content"  style="width:80%">          
+                <form [formGroup]="formGroup2" #f="ngForm" (ngSubmit)="update(f.value)"> 
+                  <mat-list>
+                    <mat-list-item class="row">
+                          <mat-form-field class="half-width">
+                            <input matInput formControlName="firstName" placeholder="First Name" [(ngModel)]="user.firstName" required>
+                          </mat-form-field>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                          <mat-form-field class="half-width">
+                            <input matInput formControlName="lastName" placeholder="Last Name" [(ngModel)]="user.lastName" required>
+                          </mat-form-field>
+                    </mat-list-item>
+                    <mat-list-item class="row">
+                            <mat-form-field class="half-width">
+                              <input matInput name="email" placeholder="Email" value={{user.email}} disabled>
+                            </mat-form-field>
+                    </mat-list-item>
+                  </mat-list>
+                  <div>
+                      <button mat-raised-button color="primary" type="submit">Update</button>
+                  </div>
+                </form>
+              </div>
+            </mat-tab>
+
+            <mat-tab label="Order History">
+              <div class="demo-tab-content">
+                  <div class="example-container mat-elevation-z8">
+                      <mat-table #table [dataSource]="dataSource">
+                    
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="position">
+                          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.orderNumber}} </mat-cell>
+                        </ng-container>
+                    
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                          <mat-header-cell *matHeaderCellDef> Product </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.product}} </mat-cell>
+                        </ng-container>
+                    
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="weight">
+                          <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+                        </ng-container>
+                    
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="symbol">
+                          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+                        </ng-container>
+                    
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                      </mat-table>
+                    
+                      <mat-paginator #paginator
+                                     [pageSize]="5"
+                                     [pageSizeOptions]="[5, 10, 20]"
+                                     [showFirstLastButtons]="true">
+                      </mat-paginator>
+                    </div>
+              </div>  
+            </mat-tab>
+
+
+            <mat-tab label="Saved Address">
+                <div class="demo-tab-content"  style="width:80%">          
+                    <form [formGroup]="formGroup1" #f2="ngForm" (ngSubmit)="updateAddress(f2.value)"> 
+                      <mat-list>
+                        <mat-list-item class="row">
+                              <mat-form-field class="half-width">
+                                <input matInput formControlName="address1" placeholder="Address 1" [(ngModel)] = "localAddress.addr_1" required>
+                              </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item class="row">
+                                <mat-form-field class="half-width">
+                                  <input matInput name="address2" placeholder="Address 2" value="{{localAddress.addr_2}}">
+                                </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item class="row">
+                            <mat-form-field>
+                                <mat-select placeholder="Choose your state" formControlName="state" [(ngModel)]="selectedState" required>
+                                  <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item class="row">
+                          <mat-form-field>
+                            <input matInput placeholder="City" formControlName="city" [(ngModel)]="localAddress.city" required>
+                          </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item class="row">
+                          <mat-form-field>
+                            <input matInput #zipcode placeholder="Zip Code" formControlName="zip" [(ngModel)]="localAddress.zip" maxlength="5" required>
+                            <mat-hint align="end">{{zipcode.value.length}} / 5</mat-hint>
+                          </mat-form-field>
+                        </mat-list-item>
+                        <mat-list-item class="row">
+                          <mat-form-field>
+                            <input type="tel" matInput placeholder="Phone Number" formControlName="phone" [(ngModel)]="localAddress.phone" maxlength="10" required>
+                          </mat-form-field>
+                        </mat-list-item>
+                      </mat-list>
+                      <div>
+                          <button mat-raised-button color="primary" type="submit">Update</button>
+                      </div>
+                    </form>
+                  </div>
+            </mat-tab>
+
+            <mat-tab label="Tab 4">
+              <div class="demo-tab-content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
+                Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
+                In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,
+                feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,
+                orci enim rutrum enim, vel tempor sapien arcu a tellus.
+                <br />
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
+                Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.
+                In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,
+                feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,
+                orci enim rutrum enim, vel tempor sapien arcu a tellus.
+              </div>  
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
+  </div>
+</div>
