@@ -119,7 +119,8 @@
     "Orders": [
       {
          "id": 1,
-         "orderNumber": "xxxx00001",
+         "orderNumber": 1920374829,
+         "date": "2018-04-23 11:30:28",
          "product": "Game 2", 
          "quantity": 2, 
          "price": 12.99,
@@ -128,7 +129,8 @@
       },
       {
          "id": 2,
-         "orderNumber": "xxxx00002",
+         "orderNumber": 3849273829,
+         "date": "2018-01-08 22:17:04",
          "product": "Game 5", 
          "quantity": 1, 
          "price": 5.99,
@@ -137,7 +139,8 @@
       },
       {
          "id": 3,
-         "orderNumber": "xxxx00003",
+         "orderNumber": 3593728492,
+         "date": "2018-02-17 09:22:45",
          "product": "Game 6",
          "quantity": 3, 
          "price": 10.12,

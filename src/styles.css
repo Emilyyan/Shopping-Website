@@ -12,8 +12,8 @@ h1 {
     font-weight: lighter;
   }
   body {
-    margin: 2em;
-    overflow-x: hidden;
+    /*margin: 2em;
+    overflow-x: hidden;*/
   }
   body, input[text], button {
     color: #888;
