@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 
 import { NgModule } from '@angular/core';
@@ -11,10 +11,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
 
 import {
   MatAutocompleteModule,
@@ -55,7 +57,6 @@ import {
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +65,8 @@ import {
     HomeComponent,
     ShoppingcartComponent,
     SignUpComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -77,11 +79,16 @@ import {
     MatCardModule,
     MatDividerModule,
     MatIconModule,
+    MatTabsModule,
     routing,
     MatDialogModule,
     ReactiveFormsModule,
     MatListModule,
     FormsModule,
+    MatTableModule,
+    MatListModule,
+    MatDividerModule,
+    MatPaginatorModule,
     MatTableModule,
     HttpClientModule
   ],

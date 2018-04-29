@@ -3,6 +3,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes: Routes = [
     {
@@ -11,7 +12,8 @@ const appRoutes: Routes = [
       children: [
         { path: '', component: HomeComponent, pathMatch: 'full'},
         //{ path: 'signin', component: SignInComponent},
-        { path: 'cart', component: ShoppingcartComponent}
+        { path: 'cart', component: ShoppingcartComponent},
+        { path: 'dashboard', component: DashboardComponent}
       ]
     }
   ];
