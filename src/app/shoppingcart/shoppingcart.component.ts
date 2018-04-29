@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import {MatTableDataSource} from '@angular/material';
 import { element } from 'protractor';
+import { DataSource } from '@angular/cdk/collections';
+import { DecimalPipe } from '@angular/common';
+import {CartItem} from '../interfaces';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -8,52 +12,56 @@ import { element } from 'protractor';
   styleUrls: ['./shoppingcart.component.css']
 })
 export class ShoppingcartComponent implements OnInit {
-  constructor() { }
+  cartitems : CartItem[];
+  constructor(private httpClient:HttpClient){  }
+  //ds = new MatTableDataSource(this.cartitems);
+  subTotal = 0;
+  itemsCnt = 0;
 
   ngOnInit() {
+    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart`)
+    .subscribe(
+      (data:any[]) => {
+        if(data.length) {
+          this.cartitems = data;
+        }
+      },
+      error => console.log("Error: ", error),
+      () => {
+        this.calcSubTotal(); 
+        this.countItems();
+      }
+    )
   }
 
   displayedColumns = ['product', 'quantity', 'price', 'total_price'];
-  ds = new MatTableDataSource(ELEMENT_DATA);
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.ds.filter = filterValue;
+  private calcSubTotal(){
+    let s = 0;
+      for(let e of this.cartitems){
+        s += (e.price * e.quantity);
+      }
+    this.subTotal = s;
   }
-  reduceByOne(quantity: number){
-    //quantity--;
-    console.log(quantity);
-  }
-  increaseByOne(quantity: number){
-    //quantity++;
-    console.log(quantity);
-  }
-  calcSubTotal(){
-    let subtotal = 0;
-    for(let e of ELEMENT_DATA){
-      subtotal += (e.price * e.quantity);
-    }
-    return subtotal;
-  }
-  countItems(){
+  
+  private countItems(){
     let count = 0;
-    for(let e of ELEMENT_DATA){
-      count += e.quantity;
-    }
-    return count;
+      for(let e of this.cartitems){
+        count += e.quantity;
+      }
+    this.itemsCnt = count;
+  }
+
+  updateCart(){
+    this.httpClient.post(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart`, this.cartitems)
+      .subscribe(
+        res => console.log(res),
+        error => console.log(error),
+        () => {
+          this.calcSubTotal();
+          this.countItems();
+        }
+      ); 
   }
 }
-
-export interface Element {
-  product: string;
-  quantity: number;
-  price: number;
-}
-
-const ELEMENT_DATA: Element[] = [
-  {product: 'Game 2', quantity: 2, price: 12.99},
-  {product: 'Game 5', quantity: 1, price: 5.99},
-  {product: 'Game 6', quantity: 3, price: 10.12}
-];
 
