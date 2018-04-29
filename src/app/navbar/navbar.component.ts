@@ -30,9 +30,6 @@ export class NavbarComponent implements OnInit{
       height: '45%',
       width: '40%'
     });
-/*
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });*/
+
   }
 }

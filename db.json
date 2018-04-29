@@ -71,5 +71,54 @@
        "stock": 15, 
        "desc": "Item introduction goes here ...", 
        "img": "https://material.angular.io/assets/img/examples/shiba2.jpg"}
+   ],
+   "Cart": [
+      {
+         "id": 1,
+         "product": "Game 2", 
+         "quantity": 2, 
+         "price": 12.99
+      },
+      {
+         "id": 2,
+         "product": "Game 5", 
+         "quantity": 1, 
+         "price": 5.99
+      },
+      {
+         "id": 3,
+         "product": "Game 6",
+         "quantity": 3, 
+         "price": 10.12
+      }
+   ],
+    "Orders": [
+      {
+         "id": 1,
+         "orderNumber": "xxxx00001",
+         "product": "Game 2", 
+         "quantity": 2, 
+         "price": 12.99,
+         "total_prices": 26,
+         "status": "shipped"
+      },
+      {
+         "id": 2,
+         "orderNumber": "xxxx00002",
+         "product": "Game 5", 
+         "quantity": 1, 
+         "price": 5.99,
+         "total_prices": 5.99,
+         "status": "delivered"
+      },
+      {
+         "id": 3,
+         "orderNumber": "xxxx00003",
+         "product": "Game 6",
+         "quantity": 3, 
+         "price": 10.12,
+         "total_prices": 30.36,
+         "status": "processing"
+      }
    ]
 }
