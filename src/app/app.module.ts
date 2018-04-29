@@ -13,8 +13,9 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DomSanitizer } from '@angular/platform-browser';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
+import { DomSanitizer } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -69,7 +70,8 @@ import {
     ProductDetailComponent,
     DashboardComponent,
     CheckoutComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -97,14 +99,16 @@ import {
     MatChipsModule,
     MatStepperModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
     SignInComponent, 
     SignUpComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    OrderDetailComponent
   ]
 })
 export class AppModule { }
