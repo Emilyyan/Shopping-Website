@@ -7,8 +7,6 @@
        "lastName": "Smith", 
        "password": "12344321",
        "address": {
-           "fname": "Yan",
-           "lname": "Emily",
            "addr_1": "1885 Folsom St",
            "addr_2": "APT 123",
            "state": "Colorado",
@@ -24,8 +22,6 @@
        "lastName": "Lee", 
        "password": "1234555",
        "address": {
-           "fname": "Evans",
-           "lname": "Paul",
            "addr_1": "333 Folsom St",
            "addr_2": "APT 53",
            "state": "Colorado",
@@ -41,8 +37,6 @@
        "lastName": "Tasaka", 
        "password": "1234555321",
        "address": {
-           "fname": "Carlos",
-           "lname": "Stoneman",
            "addr_1": "1954 Holden Street",
            "addr_2": "APT 1773",
            "state": "California",
