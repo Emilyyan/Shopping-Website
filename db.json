@@ -101,11 +101,11 @@
          "id": 1,
          "email": "stest1@gmail.com",
          "items": [
-            {  "product": "Game 2", 
+            {  "pid": 2, 
                "quantity": 2 },
-            {  "product": "Game 5", 
+            {  "pid": 5, 
                "quantity": 1 },
-            {  "product": "Game 6",
+            {  "pid": 6,
                "quantity": 3 }
            ]
         },
@@ -113,11 +113,11 @@
          "id": 2,
          "email": "test1@gmail.com",
          "items": [
-            {  "product": "Game 1", 
+            {  "pid": 1, 
                "quantity": 3 },
-            {  "product": "Game 3", 
+            {  "pid": 3, 
                "quantity": 3 },
-            {  "product": "Game 4",
+            {  "pid": 4,
                "quantity": 1 }
            ]
         },
@@ -125,9 +125,9 @@
          "id": 3,
          "email": "sp@gmail.com",
          "items": [
-            {  "product": "Game 5", 
+            {  "pid": 5, 
                "quantity": 2 },
-            {  "product": "Game 8", 
+            {  "pid": 8, 
                "quantity": 1 }
            ]
         }
