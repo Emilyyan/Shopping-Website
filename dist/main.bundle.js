@@ -80,15 +80,17 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shoppingcart_shoppingcart_component__ = __webpack_require__("./src/app/shoppingcart/shoppingcart.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__checkout_checkout_component__ = __webpack_require__("./src/app/checkout/checkout.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__product_detail_product_detail_component__ = __webpack_require__("./src/app/product-detail/product-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__dashboard_dashboard_component__ = __webpack_require__("./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -116,31 +118,38 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */],
                 __WEBPACK_IMPORTED_MODULE_9__shoppingcart_shoppingcart_component__["a" /* ShoppingcartComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__sign_up_sign_up_component__["a" /* SignUpComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__dashboard_dashboard_component__["a" /* DashboardComponent */],
                 __WEBPACK_IMPORTED_MODULE_10__checkout_checkout_component__["a" /* CheckoutComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__product_detail_product_detail_component__["a" /* ProductDetailComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["j" /* MatInputModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["l" /* MatMenuModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["b" /* MatButtonModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["r" /* MatToolbarModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["h" /* MatGridListModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["c" /* MatCardModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["g" /* MatDividerModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["i" /* MatIconModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["j" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["l" /* MatMenuModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["b" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["t" /* MatToolbarModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["h" /* MatGridListModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["c" /* MatCardModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["g" /* MatDividerModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["i" /* MatIconModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["s" /* MatTabsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__app_router__["a" /* routing */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["f" /* MatDialogModule */],
-                __WEBPACK_IMPORTED_MODULE_12__angular_forms__["j" /* ReactiveFormsModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["k" /* MatListModule */],
-                __WEBPACK_IMPORTED_MODULE_12__angular_forms__["e" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["q" /* MatTableModule */],
-                __WEBPACK_IMPORTED_MODULE_13__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["d" /* MatChipsModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["o" /* MatStepperModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["n" /* MatSelectModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_material__["m" /* MatRadioModule */]
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["f" /* MatDialogModule */],
+                __WEBPACK_IMPORTED_MODULE_13__angular_forms__["j" /* ReactiveFormsModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["k" /* MatListModule */],
+                __WEBPACK_IMPORTED_MODULE_13__angular_forms__["e" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["r" /* MatTableModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["k" /* MatListModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["g" /* MatDividerModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["n" /* MatPaginatorModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["r" /* MatTableModule */],
+                __WEBPACK_IMPORTED_MODULE_14__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["d" /* MatChipsModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["q" /* MatStepperModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["p" /* MatSelectModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_material__["o" /* MatRadioModule */]
             ],
             providers: [],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]],
@@ -167,7 +176,9 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__navbar_navbar_component__ = __webpack_require__("./src/app/navbar/navbar.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home_component__ = __webpack_require__("./src/app/home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shoppingcart_shoppingcart_component__ = __webpack_require__("./src/app/shoppingcart/shoppingcart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__checkout_checkout_component__ = __webpack_require__("./src/app/checkout/checkout.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dashboard_dashboard_component__ = __webpack_require__("./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__checkout_checkout_component__ = __webpack_require__("./src/app/checkout/checkout.component.ts");
+
 
 
 
@@ -181,7 +192,8 @@ var appRoutes = [
             { path: '', component: __WEBPACK_IMPORTED_MODULE_2__home_home_component__["a" /* HomeComponent */], pathMatch: 'full' },
             //{ path: 'signin', component: SignInComponent},
             { path: 'cart', component: __WEBPACK_IMPORTED_MODULE_3__shoppingcart_shoppingcart_component__["a" /* ShoppingcartComponent */] },
-            { path: 'checkout', component: __WEBPACK_IMPORTED_MODULE_4__checkout_checkout_component__["a" /* CheckoutComponent */] }
+            { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_4__dashboard_dashboard_component__["a" /* DashboardComponent */] },
+            { path: 'checkout', component: __WEBPACK_IMPORTED_MODULE_5__checkout_checkout_component__["a" /* CheckoutComponent */] }
         ]
     }
 ];
@@ -200,7 +212,7 @@ module.exports = ""
 /***/ "./src/app/checkout/checkout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content\">\n\n  <h4>Checkout</h4>\n\n  <mat-horizontal-stepper [linear]=\"true\" #stepper=\"matHorizontalStepper\">\n    <mat-step [stepControl]=\"firstFormGroup\">\n      <h5>Shipping</h5>\n      <form [formGroup]=\"firstFormGroup\">\n        <ng-template matStepLabel>Shipping Info</ng-template>\n        <mat-form-field>\n          <input matInput placeholder=\"First name\" formControlName=\"fname\" required>\n        </mat-form-field>\n        <mat-form-field>\n          <input matInput placeholder=\"Last name\" formControlName=\"lname\" required>\n        </mat-form-field>\n        <br/>\n        <mat-form-field>\n          <input matInput placeholder=\"Address 1\" formControlName=\"addr\" required>\n        </mat-form-field>\n        <mat-form-field>\n            <input matInput placeholder=\"Address 2\">\n          </mat-form-field>\n        <br/>\n        <mat-form-field>\n          <mat-select placeholder=\"Choose your state\" formControlName=\"state\" required>\n            <mat-option *ngFor=\"let state of states\" [value]=\"state\">{{state}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n        <mat-form-field>\n          <input matInput placeholder=\"City\" formControlName=\"city\" required>\n        </mat-form-field>\n        <br>\n        <mat-form-field>\n          <input matInput #zipcode placeholder=\"Zip Code\" formControlName=\"zip\" maxlength=\"5\" required>\n          <mat-hint align=\"end\">{{zipcode.value.length}} / 5</mat-hint>\n        </mat-form-field>\n        <mat-form-field>\n          <input type=\"tel\" matInput placeholder=\"Phone Number\" formControlName=\"phone\" maxlength=\"10\" required>\n        </mat-form-field>\n        <div>\n          <button mat-button matStepperNext>Next</button>\n        </div>\n      </form>\n    </mat-step>\n    <mat-step [stepControl]=\"secondFormGroup\">\n      <h5>Payment</h5>\n      <form [formGroup]=\"secondFormGroup\">\n        <ng-template matStepLabel>Payment Info</ng-template>\n        <p>* Sorry! We only accept payment via Paypal by this point.</p>\n        <mat-radio-group formControlName=\"secondCtrl\" required>\n          <mat-radio-button value=\"1\" disabled=\"true\">Credit Card</mat-radio-button>\n          <mat-radio-button value=\"2\">Paypal</mat-radio-button>\n        </mat-radio-group>\n        <br><br>\n        <div>\n          <button mat-button matStepperPrevious>Back</button>\n          <button mat-button matStepperNext>Next</button>\n        </div>\n      </form>\n    </mat-step>\n    <mat-step>\n      <ng-template matStepLabel>Place Order</ng-template>\n      <h5>Review Your Order</h5>\n      \n      <div>\n        <button mat-button (click)=\"onSubmit()\">Place your order</button>\n        <button mat-button (click)=\"stepper.reset()\">Clear form</button>\n      </div>\n    </mat-step>\n  </mat-horizontal-stepper>\n\n</div>\n\n"
+module.exports = "<div class=\"content\">\n\n  <h4>Checkout</h4>\n\n  <mat-horizontal-stepper [linear]=\"true\" #stepper=\"matHorizontalStepper\">\n    <mat-step [stepControl]=\"firstFormGroup\">\n      <h5>Shipping</h5>\n      <p>(required fields *)</p>\n      <form [formGroup]=\"firstFormGroup\" #f1=\"ngForm\" (ngSubmit)=\"onSubmit(f1)\">\n        <ng-template matStepLabel>Shipping Info</ng-template>\n        <mat-form-field>\n          <input matInput placeholder=\"First name\" formControlName=\"fname\" [(ngModel)]=\"fname\" required>\n        </mat-form-field>\n        <mat-form-field>\n          <input matInput placeholder=\"Last name\" formControlName=\"lname\" [(ngModel)]=\"lname\" required>\n        </mat-form-field>\n        <br/>\n        <mat-form-field>\n          <input matInput placeholder=\"Address 1\" formControlName=\"addr\" [(ngModel)]=\"addr1\" required>\n        </mat-form-field>\n        <mat-form-field>\n            <input matInput placeholder=\"Address 2\" [(value)]=\"addr2\">\n          </mat-form-field>\n        <br/>\n        <mat-form-field>\n          <mat-select placeholder=\"Choose your state\" formControlName=\"state\" [(ngModel)]=\"selectedState\" required>\n            <mat-option *ngFor=\"let state of states\" [value]=\"state\">{{state}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n        <mat-form-field>\n          <input matInput placeholder=\"City\" formControlName=\"city\" [(ngModel)]=\"city\" required>\n        </mat-form-field>\n        <br>\n        <mat-form-field>\n          <input matInput #zipcode placeholder=\"Zip Code\" formControlName=\"zip\" maxlength=\"5\" [(ngModel)]=\"zip\" required>\n          <mat-hint align=\"end\">{{zipcode.value.length}} / 5</mat-hint>\n        </mat-form-field>\n        <mat-form-field>\n          <input type=\"tel\" matInput placeholder=\"Phone Number\" formControlName=\"phone\" maxlength=\"10\" [(ngModel)]=\"phone\" required>\n        </mat-form-field>\n        <div>\n          <button mat-button (click)=\"fillAddress()\" type=\"button\">Use saved address</button>\n          <button mat-button>Submit</button>\n          <button mat-button matStepperNext type=\"button\">Next</button>\n        </div>\n      </form>\n    </mat-step>\n    <mat-step [stepControl]=\"secondFormGroup\">\n      <h5>Payment</h5>\n      <form [formGroup]=\"secondFormGroup\">\n        <ng-template matStepLabel>Payment Info</ng-template>\n        <p>* Sorry! We only accept payment via Paypal by this point.</p>\n        <mat-radio-group formControlName=\"secondCtrl\" required>\n          <mat-radio-button value=\"1\" disabled=\"true\">Credit Card</mat-radio-button>\n          <mat-radio-button value=\"2\">Paypal</mat-radio-button>\n        </mat-radio-group>\n        <br><br>\n        <div>\n          <button mat-button matStepperPrevious>Back</button>\n          <button mat-button matStepperNext>Next</button>\n        </div>\n      </form>\n    </mat-step>\n    <mat-step>\n      <ng-template matStepLabel>Place Order</ng-template>\n      <h5>Review Your Order</h5>\n      \n      <div>\n        <button mat-button (click)=\"onSubmit()\">Place your order</button>\n        <button mat-button (click)=\"stepper.reset()\">Clear form</button>\n      </div>\n    </mat-step>\n  </mat-horizontal-stepper>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -210,7 +222,8 @@ module.exports = "<div class=\"content\">\n\n  <h4>Checkout</h4>\n\n  <mat-horiz
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CheckoutComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -222,9 +235,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var CheckoutComponent = /** @class */ (function () {
-    function CheckoutComponent(_formBuilder) {
+    function CheckoutComponent(_formBuilder, httpClient) {
         this._formBuilder = _formBuilder;
+        this.httpClient = httpClient;
+        this.addr2 = "";
         this.states = [
             'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
             'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
@@ -235,19 +251,49 @@ var CheckoutComponent = /** @class */ (function () {
             'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
         ];
     }
+    CheckoutComponent.prototype.fillAddress = function () {
+        this.fname = this.profile.firstName;
+        this.lname = this.profile.lastName;
+        this.addr1 = this.profile.address.addr_1;
+        this.addr2 = this.profile.address.addr_2;
+        this.selectedState = this.profile.address.state;
+        this.city = this.profile.address.city;
+        this.zip = this.profile.address.zip;
+        this.phone = this.profile.address.phone;
+    };
     CheckoutComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.firstFormGroup = this._formBuilder.group({
-            fname: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required],
-            lname: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required],
-            state: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required],
-            city: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required],
-            addr: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required],
-            zip: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required],
-            phone: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required]
+            fname: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["k" /* Validators */].required],
+            lname: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["k" /* Validators */].required],
+            state: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["k" /* Validators */].required],
+            city: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["k" /* Validators */].required],
+            addr: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["k" /* Validators */].required],
+            zip: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["k" /* Validators */].required],
+            phone: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["k" /* Validators */].required]
         });
         this.secondFormGroup = this._formBuilder.group({
-            secondCtrl: ['', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required]
+            secondCtrl: ['', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["k" /* Validators */].required]
         });
+        this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users?id=3")
+            .subscribe(function (data) {
+            if (data.length) {
+                _this.profile = data[0];
+            }
+        }, function (error) { return console.log("Error: ", error); }, function () {
+        });
+    };
+    /*export interface Order{
+        products: CartItem[];
+        total_prices: number;
+        status: string;
+    }*/
+    CheckoutComponent.prototype.onSubmit = function (f) {
+        if (f.invalid) {
+            this.httpClient.post("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Order", this.order)
+                .subscribe(function (res) { return console.log(res); }, function (error) { return console.log(error); }, function () {
+            });
+        }
     };
     CheckoutComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -255,9 +301,143 @@ var CheckoutComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/checkout/checkout.component.html"),
             styles: [__webpack_require__("./src/app/checkout/checkout.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormBuilder */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], CheckoutComponent);
     return CheckoutComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dashboard/dashboard.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ".demo-tab-group {\n    border: 1px solid #e8e8e8;\n  }\n  \n.demo-tab-content {\n    padding: 16px;\n}\n  \n.outline{\n    width: 70%;\n    margin-left: auto; \n    margin-right: auto;\n}\n  \n.half-width{\n    width:60%;\n}\n  \n.row{\n    padding : 1em;\n}\n"
+
+/***/ }),
+
+/***/ "./src/app/dashboard/dashboard.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div style=\"text-align: center;\">\n  <div class=\"content\">\n    <mat-card class=\"outline\">\n        <mat-card-content>\n          <h2 class=\"example-h2\">Hi</h2>\n          <mat-tab-group class=\"demo-tab-group\">\n            <mat-tab label=\"Account Information\">\n              <div class=\"demo-tab-content\"  style=\"width:80%\">          \n                <form [formGroup]=\"formGroup2\" #f=\"ngForm\" (ngSubmit)=\"update(f.value)\"> \n                  <mat-list>\n                    <mat-list-item class=\"row\">\n                          <mat-form-field class=\"half-width\">\n                            <input matInput formControlName=\"firstName\" placeholder=\"First Name\" [(ngModel)]=\"user.firstName\" required>\n                          </mat-form-field>\n                    </mat-list-item>\n                    <mat-list-item class=\"row\">\n                          <mat-form-field class=\"half-width\">\n                            <input matInput formControlName=\"lastName\" placeholder=\"Last Name\" [(ngModel)]=\"user.lastName\" required>\n                          </mat-form-field>\n                    </mat-list-item>\n                    <mat-list-item class=\"row\">\n                            <mat-form-field class=\"half-width\">\n                              <input matInput name=\"email\" placeholder=\"Email\" value={{user.email}} disabled>\n                            </mat-form-field>\n                    </mat-list-item>\n                  </mat-list>\n                  <div>\n                      <button mat-raised-button color=\"primary\" type=\"submit\">Update</button>\n                  </div>\n                </form>\n              </div>\n            </mat-tab>\n\n            <mat-tab label=\"Order History\">\n              <div class=\"demo-tab-content\">\n                  <div class=\"example-container mat-elevation-z8\">\n                      <mat-table #table [dataSource]=\"dataSource\">\n                    \n                        <!-- Position Column -->\n                        <ng-container matColumnDef=\"position\">\n                          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\"> {{element.orderNumber}} </mat-cell>\n                        </ng-container>\n                    \n                        <!-- Name Column -->\n                        <ng-container matColumnDef=\"name\">\n                          <mat-header-cell *matHeaderCellDef> Product </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\"> {{element.product}} </mat-cell>\n                        </ng-container>\n                    \n                        <!-- Weight Column -->\n                        <ng-container matColumnDef=\"weight\">\n                          <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\"> {{element.quantity}} </mat-cell>\n                        </ng-container>\n                    \n                        <!-- Symbol Column -->\n                        <ng-container matColumnDef=\"symbol\">\n                          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\"> {{element.price}} </mat-cell>\n                        </ng-container>\n                    \n                        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n                      </mat-table>\n                    \n                      <mat-paginator #paginator\n                                     [pageSize]=\"5\"\n                                     [pageSizeOptions]=\"[5, 10, 20]\"\n                                     [showFirstLastButtons]=\"true\">\n                      </mat-paginator>\n                    </div>\n              </div>  \n            </mat-tab>\n\n\n            <mat-tab label=\"Saved Address\">\n                <div class=\"demo-tab-content\"  style=\"width:80%\">          \n                    <form [formGroup]=\"formGroup1\" #f2=\"ngForm\" (ngSubmit)=\"updateAddress(f2.value)\"> \n                      <mat-list>\n                        <mat-list-item class=\"row\">\n                              <mat-form-field class=\"half-width\">\n                                <input matInput formControlName=\"address1\" placeholder=\"Address 1\" [(ngModel)] = \"localAddress.addr_1\" required>\n                              </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                                <mat-form-field class=\"half-width\">\n                                  <input matInput name=\"address2\" placeholder=\"Address 2\" value=\"{{localAddress.addr_2}}\">\n                                </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                            <mat-form-field>\n                                <mat-select placeholder=\"Choose your state\" formControlName=\"state\" [(ngModel)]=\"selectedState\" required>\n                                  <mat-option *ngFor=\"let state of states\" [value]=\"state\">{{state}}</mat-option>\n                                </mat-select>\n                              </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                          <mat-form-field>\n                            <input matInput placeholder=\"City\" formControlName=\"city\" [(ngModel)]=\"localAddress.city\" required>\n                          </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                          <mat-form-field>\n                            <input matInput #zipcode placeholder=\"Zip Code\" formControlName=\"zip\" [(ngModel)]=\"localAddress.zip\" maxlength=\"5\" required>\n                            <mat-hint align=\"end\">{{zipcode.value.length}} / 5</mat-hint>\n                          </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                          <mat-form-field>\n                            <input type=\"tel\" matInput placeholder=\"Phone Number\" formControlName=\"phone\" [(ngModel)]=\"localAddress.phone\" maxlength=\"10\" required>\n                          </mat-form-field>\n                        </mat-list-item>\n                      </mat-list>\n                      <div>\n                          <button mat-raised-button color=\"primary\" type=\"submit\">Update</button>\n                      </div>\n                    </form>\n                  </div>\n            </mat-tab>\n\n            <mat-tab label=\"Tab 4\">\n              <div class=\"demo-tab-content\">\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.\n                Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.\n                In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,\n                feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,\n                orci enim rutrum enim, vel tempor sapien arcu a tellus.\n                <br />\n                <br />\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.\n                Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.\n                In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,\n                feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,\n                orci enim rutrum enim, vel tempor sapien arcu a tellus.\n              </div>  \n            </mat-tab>\n          </mat-tab-group>\n        </mat-card-content>\n      </mat-card>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/dashboard/dashboard.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material_table__ = __webpack_require__("./node_modules/@angular/material/esm5/table.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var DashboardComponent = /** @class */ (function () {
+    function DashboardComponent(httpClient, _formBuilder) {
+        this.httpClient = httpClient;
+        this._formBuilder = _formBuilder;
+        //user: User;
+        this.user = [];
+        this.selectedState = "";
+        this.localAddress = [];
+        this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material_table__["a" /* MatTableDataSource */]();
+        //update user info tab
+        this.update = function (userinfo) {
+            if (this.formGroup2.valid) {
+                //below link if only for testing front end logic
+                this.httpClient.post("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users", { email: userinfo.email, first_name: userinfo.firstName, last_name: userinfo.lastName })
+                    .subscribe(function (res) { return console.log(res); });
+            }
+        };
+        //update saved address info tab
+        this.updateAddress = function (changedAddress) {
+            //below link if only for testing front end logic
+            if (this.formGroup1.valid) {
+                this.httpClient.post("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users", { changedAddress: changedAddress })
+                    .subscribe(function (res) { return console.log(res); });
+            }
+        };
+        this.states = [
+            'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
+            'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
+            'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
+            'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico',
+            'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
+            'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+            'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+        ];
+    }
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.formGroup1 = this._formBuilder.group({
+            state: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["k" /* Validators */].required],
+            city: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["k" /* Validators */].required],
+            address1: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["k" /* Validators */].required],
+            zip: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["k" /* Validators */].required],
+            phone: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["k" /* Validators */].required]
+        });
+        this.formGroup2 = this._formBuilder.group({
+            firstName: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["k" /* Validators */].required],
+            lastName: ['', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["k" /* Validators */].required]
+        });
+        //id should be replaced by the return value from server side
+        //get user info for info and address tabs
+        this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users?id=1")
+            .subscribe(function (data) {
+            if (data.length) {
+                console.log(data[0]);
+                _this.user = data[0];
+                _this.localAddress = data[0].address;
+                _this.selectedState = data[0].address.state;
+            }
+        }, function (error) { return console.log("Error", error); }
+        //() => {this.xxx();}
+        );
+        //order history should be returned from server side after authentication
+        //get order info for order history tab
+        this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Orders")
+            .subscribe(function (data) {
+            if (data.length) {
+                _this.dataSource.data = data;
+                //console.log(this.dataSource.data);
+            }
+        }, function (error) { return console.log("Error", error); }
+        //() => {this.xxx();}
+        );
+    };
+    DashboardComponent.prototype.ngAfterViewInit = function () {
+        this.dataSource.paginator = this.paginator;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["m" /* MatPaginator */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_material__["m" /* MatPaginator */])
+    ], DashboardComponent.prototype, "paginator", void 0);
+    DashboardComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-dashboard',
+            template: __webpack_require__("./src/app/dashboard/dashboard.component.html"),
+            styles: [__webpack_require__("./src/app/dashboard/dashboard.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormBuilder */]])
+    ], DashboardComponent);
+    return DashboardComponent;
 }());
 
 
@@ -304,7 +484,6 @@ var HomeComponent = /** @class */ (function () {
     function HomeComponent(httpClient, dialog) {
         this.httpClient = httpClient;
         this.dialog = dialog;
-        this.products = [];
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -336,30 +515,6 @@ var HomeComponent = /** @class */ (function () {
     return HomeComponent;
 }());
 
-/*
-export interface Product {
-  id: number;
-  name: string;
-  price: number;
-  stock: number;
-  desc: string;
-  img: string;
-}
-
-const PRODUCT_DATA: Product[] = [
-  {id: 1, name: 'Game 1', price: 12.99, stock: 15, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  {id: 2, name: 'Game 2', price: 11.99, stock: 16, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  {id: 3, name: 'Game 3', price: 12.99, stock: 12, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  {id: 4, name: 'Game 4', price: 12.99, stock: 0, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  {id: 5, name: 'Game 5', price: 5.99, stock: 15, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  {id: 6, name: 'Game 6', price: 10.12, stock: 15, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  {id: 7, name: 'Game 7', price: 15.99, stock: 34, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  {id: 8, name: 'Game 8', price: 18.99, stock: 15, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  {id: 9, name: 'Game 9', price: 12.99, stock: 93, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  {id: 10, name: 'Game 10', price: 16.99, stock: 15, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  {id: 11, name: 'Game 11', price: 16.99, stock: 35, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'},
-  {id: 12, name: 'Game 12', price: 10.88, stock: 15, desc: 'Item introduction goes here ...', img: 'https://material.angular.io/assets/img/examples/shiba2.jpg'}
-];*/
 
 
 /***/ }),
@@ -527,7 +682,7 @@ module.exports = ".page-container{\n    display: -webkit-box;\n    display: -ms-
 /***/ "./src/app/shoppingcart/shoppingcart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content\">\n  \n  <div class=\"page-container\">\n    <div class=\"left-container\">\n      <h4>Shopping Cart</h4>\n\n      <div class=\"left-header\">\n        <mat-form-field>\n          <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n        </mat-form-field>\n      </div>\n\n      <mat-table #table [dataSource]=\"ds\">\n\n        <!-- Product Column -->\n        <ng-container matColumnDef=\"product\">\n          <mat-header-cell  *matHeaderCellDef>Product</mat-header-cell>\n          <mat-cell *matCellDef=\"let element\"> \n            {{element.product}} \n          </mat-cell>\n\n        </ng-container>\n    \n        <!-- Quantity Column -->\n        <ng-container matColumnDef=\"quantity\">\n          <mat-header-cell *matHeaderCellDef>Quantity</mat-header-cell>\n          <mat-cell *matCellDef=\"let element\" > \n            <button mat-icon-button color=\"primary\" (click)=\"reduceByOne(element.quantity)\">\n              <mat-icon>remove</mat-icon>\n            </button>\n            {{element.quantity}} \n            <button mat-icon-button color=\"primary\" (click)=\"increaseByOne(element.quantity)\">\n              <mat-icon>add</mat-icon>\n            </button>\n          </mat-cell>\n        </ng-container>\n    \n        <!-- Price Column -->\n        <ng-container matColumnDef=\"price\">\n          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>\n          <mat-cell *matCellDef=\"let element\"> ${{element.price}} </mat-cell>\n        </ng-container>\n    \n        <!-- Total Price Column -->\n        <ng-container matColumnDef=\"total_price\">\n          <mat-header-cell *matHeaderCellDef> Total Price</mat-header-cell>\n          <mat-cell *matCellDef=\"let element\"> ${{element.quantity * element.price}} </mat-cell>\n        </ng-container>\n    \n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n      </mat-table>\n    </div>\n\n    <div class=\"right-container\">\n      <h5>Subtotal ({{countItems()}} item<span *ngIf=\"countItems()>1\">s</span>):\n         ${{calcSubTotal()}}\n      </h5>\n      <button mat-raised-button color=\"accent\" routerLink=\"/checkout\">\n        Proceed to Checkout\n        <mat-icon>navigate_next</mat-icon>\n      </button>\n    </div>\n  </div>\n\n</div>\n\n  \n"
+module.exports = "<div class=\"content\">\n  \n  <div class=\"page-container\">\n    <div class=\"left-container\">\n      <h4>Shopping Cart</h4>\n<!--\n      <div class=\"left-header\">\n        <mat-form-field>\n          <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n        </mat-form-field>\n      </div>\n    -->\n      <mat-table #table [dataSource]=\"cartitems\">\n\n        <!-- Product Column -->\n        <ng-container matColumnDef=\"product\">\n          <mat-header-cell  *matHeaderCellDef>Product</mat-header-cell>\n          <mat-cell *matCellDef=\"let element\"> \n            {{element.product}} \n          </mat-cell>\n\n        </ng-container>\n    \n        <!-- Quantity Column -->\n        <ng-container matColumnDef=\"quantity\">\n          <mat-header-cell *matHeaderCellDef>Quantity</mat-header-cell>\n          <mat-cell *matCellDef=\"let element\" > \n            <button mat-icon-button color=\"primary\" (click)=\"element.quantity = element.quantity - 1\">\n              <mat-icon>remove</mat-icon>\n            </button>\n            {{element.quantity}} \n            <button mat-icon-button color=\"primary\" (click)=\"element.quantity = element.quantity + 1\">\n              <mat-icon>add</mat-icon>\n            </button>\n          </mat-cell>\n        </ng-container>\n    \n        <!-- Price Column -->\n        <ng-container matColumnDef=\"price\">\n          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>\n          <mat-cell *matCellDef=\"let element\"> ${{element.price}} </mat-cell>\n        </ng-container>\n    \n        <!-- Total Price Column -->\n        <ng-container matColumnDef=\"total_price\">\n          <mat-header-cell *matHeaderCellDef> Total Price</mat-header-cell>\n          <mat-cell *matCellDef=\"let element\"> ${{element.quantity * element.price}} </mat-cell>\n        </ng-container>\n    \n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n      </mat-table>\n    </div>\n\n    <div class=\"right-container\">\n      <h5>\n        Subtotal ({{itemsCnt}} item<span *ngIf=\"itemsCnt>1\">s</span>): ${{subTotal}}\n      </h5>\n      <button mat-raised-button (click)=\"updateCart()\">\n        Update Your Cart\n      </button>\n      <button mat-raised-button color=\"accent\" routerLink=\"/checkout\">\n        Proceed to Checkout\n        <mat-icon>navigate_next</mat-icon>\n      </button>\n      \n    </div>\n  </div>\n\n</div>\n\n  \n"
 
 /***/ }),
 
@@ -537,7 +692,7 @@ module.exports = "<div class=\"content\">\n  \n  <div class=\"page-container\">\
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShoppingcartComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -550,40 +705,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ShoppingcartComponent = /** @class */ (function () {
-    function ShoppingcartComponent() {
+    function ShoppingcartComponent(httpClient) {
+        this.httpClient = httpClient;
+        //ds = new MatTableDataSource(this.cartitems);
+        this.subTotal = 0;
+        this.itemsCnt = 0;
         this.displayedColumns = ['product', 'quantity', 'price', 'total_price'];
-        this.ds = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["p" /* MatTableDataSource */](ELEMENT_DATA);
     }
     ShoppingcartComponent.prototype.ngOnInit = function () {
-    };
-    ShoppingcartComponent.prototype.applyFilter = function (filterValue) {
-        filterValue = filterValue.trim(); // Remove whitespace
-        filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-        this.ds.filter = filterValue;
-    };
-    ShoppingcartComponent.prototype.reduceByOne = function (quantity) {
-        //quantity--;
-        console.log(quantity);
-    };
-    ShoppingcartComponent.prototype.increaseByOne = function (quantity) {
-        //quantity++;
-        console.log(quantity);
+        var _this = this;
+        this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart")
+            .subscribe(function (data) {
+            if (data.length) {
+                _this.cartitems = data;
+            }
+        }, function (error) { return console.log("Error: ", error); }, function () {
+            _this.calcSubTotal();
+            _this.countItems();
+        });
     };
     ShoppingcartComponent.prototype.calcSubTotal = function () {
-        var subtotal = 0;
-        for (var _i = 0, ELEMENT_DATA_1 = ELEMENT_DATA; _i < ELEMENT_DATA_1.length; _i++) {
-            var e = ELEMENT_DATA_1[_i];
-            subtotal += (e.price * e.quantity);
+        var s = 0;
+        for (var _i = 0, _a = this.cartitems; _i < _a.length; _i++) {
+            var e = _a[_i];
+            s += (e.price * e.quantity);
         }
-        return subtotal;
+        this.subTotal = s;
     };
     ShoppingcartComponent.prototype.countItems = function () {
         var count = 0;
-        for (var _i = 0, ELEMENT_DATA_2 = ELEMENT_DATA; _i < ELEMENT_DATA_2.length; _i++) {
-            var e = ELEMENT_DATA_2[_i];
+        for (var _i = 0, _a = this.cartitems; _i < _a.length; _i++) {
+            var e = _a[_i];
             count += e.quantity;
         }
-        return count;
+        this.itemsCnt = count;
+    };
+    ShoppingcartComponent.prototype.updateCart = function () {
+        var _this = this;
+        this.httpClient.post("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart", this.cartitems)
+            .subscribe(function (res) { return console.log(res); }, function (error) { return console.log(error); }, function () {
+            _this.calcSubTotal();
+            _this.countItems();
+        });
     };
     ShoppingcartComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -591,16 +754,11 @@ var ShoppingcartComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/shoppingcart/shoppingcart.component.html"),
             styles: [__webpack_require__("./src/app/shoppingcart/shoppingcart.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], ShoppingcartComponent);
     return ShoppingcartComponent;
 }());
 
-var ELEMENT_DATA = [
-    { product: 'Game 2', quantity: 2, price: 12.99 },
-    { product: 'Game 5', quantity: 1, price: 5.99 },
-    { product: 'Game 6', quantity: 3, price: 10.12 }
-];
 
 
 /***/ }),
@@ -720,9 +878,10 @@ var SignUpComponent = /** @class */ (function () {
         this.email = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].email]);
         //when click submit, do post
         this.onSubmit = function (user) {
+            console.log(user);
             if (this.email.valid) {
                 //hash logic may go here
-                this.httpClient.post("/register-users", { email: "testing@gmail.com", first_name: "post", last_name: "hihi", password: "123456" })
+                this.httpClient.post("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users", { email: "testing@gmail.com", first_name: "post", last_name: "hihi", password: "123456" })
                     .subscribe(function (res) { return console.log(res); });
             }
         };
