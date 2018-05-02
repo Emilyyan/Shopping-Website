@@ -70,10 +70,11 @@ app.post('/register-users', function (req, res) {
 			  myobj.password = hash;
 			  console.log(hash);
 			  console.log(myobj.password);
+			  // add find() to check if existed
 			  dbo.collection("users").insertOne(myobj, function(err, result) {
 	            if(err)
 	            	throw err;
-	            res.status(201).json(myobj);
+	            res.redirect('/dashboard');
 	        	db.close();
 			});
         
