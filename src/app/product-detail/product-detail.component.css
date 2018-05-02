@@ -18,3 +18,10 @@ mat-grid-tile {
 .product-img {
     max-width: 400px;
 }
+
+.in-stock{
+    color: #2e7b32;
+}
+.out-of-stock{
+    color: #d32f2f;
+}

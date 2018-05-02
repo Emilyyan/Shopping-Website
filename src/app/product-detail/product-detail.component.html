@@ -2,15 +2,16 @@
   
       <div class="page-container">
           <div class="left-container">
-              <img class="product-img" src={{p.img}} alt="Product Image">
+             <img class="product-img" src="{{product?.img}}" alt="Product Image">
           </div>
 
           <div class="right-container">
-              <mat-card-title>{{p.name}}</mat-card-title>
-              ${{p.price}} &nbsp;&nbsp;&nbsp;
-              <span *ngIf="p.stock > 0" class="in-stock">In Stock</span>
-              <span *ngIf="p.stock == 0" class="out-of-stock">Out of Stock</span>
-              <p>{{p.desc}}</p>
+              <mat-card-title>{{product?.name}}</mat-card-title>
+              <mat-card-title>${{product?.price}}</mat-card-title>
+        
+              <span *ngIf="product?.stock > 0" class="in-stock">In Stock</span>
+              <span *ngIf="product?.stock == 0" class="out-of-stock">Out of Stock</span>
+              <p>${{product?.desc}}</p>
           </div>
 
       </div>
