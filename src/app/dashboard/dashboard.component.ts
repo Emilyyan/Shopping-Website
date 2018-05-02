@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { MatPaginator} from '@angular/material';
 import { MatTableDataSource } from '@angular/material/table';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { OrderDetailComponent } from '../order-detail/order-detail.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,11 +19,11 @@ export class DashboardComponent implements OnInit {
   localAddress = [];
   formGroup1: FormGroup;//for saved address tab
   formGroup2: FormGroup;//for userinfo tab
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns = ['date', 'number', 'status', 'detail'];
   dataSource = new MatTableDataSource<any>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private httpClient:HttpClient, private _formBuilder: FormBuilder){  }
+  constructor(private httpClient:HttpClient, private _formBuilder: FormBuilder, public dialog: MatDialog){  }
 
   ngOnInit() {
     this.formGroup1 = this._formBuilder.group({
@@ -96,6 +98,17 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  viewDetail = function(order_number){
+    console.log(order_number);
+    const dialogRef = this.dialog.open(OrderDetailComponent, {
+      height: '60%',
+      width: '60%',
+      data: {
+        order_number: order_number
+      }
+    });
+
+  }
 
   states = [
     'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',

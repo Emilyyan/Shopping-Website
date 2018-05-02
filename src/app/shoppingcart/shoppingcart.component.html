@@ -3,20 +3,14 @@
   <div class="page-container">
     <div class="left-container">
       <h4>Shopping Cart</h4>
-<!--
-      <div class="left-header">
-        <mat-form-field>
-          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-        </mat-form-field>
-      </div>
-    -->
+
       <mat-table #table [dataSource]="cartitems">
 
         <!-- Product Column -->
         <ng-container matColumnDef="product">
           <mat-header-cell  *matHeaderCellDef>Product</mat-header-cell>
           <mat-cell *matCellDef="let element"> 
-            {{element.product}} 
+            {{element.name}} 
           </mat-cell>
 
         </ng-container>
@@ -32,6 +26,7 @@
             <button mat-icon-button color="primary" (click)="element.quantity = element.quantity + 1">
               <mat-icon>add</mat-icon>
             </button>
+            ({{element.stock}} left)
           </mat-cell>
         </ng-container>
     
@@ -44,7 +39,7 @@
         <!-- Total Price Column -->
         <ng-container matColumnDef="total_price">
           <mat-header-cell *matHeaderCellDef> Total Price</mat-header-cell>
-          <mat-cell *matCellDef="let element"> ${{element.quantity * element.price}} </mat-cell>
+          <mat-cell *matCellDef="let element"> ${{element.quantity * element.price | number: '1.2-2'}} </mat-cell>
         </ng-container>
     
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -54,10 +49,10 @@
 
     <div class="right-container">
       <h5>
-        Subtotal ({{itemsCnt}} item<span *ngIf="itemsCnt>1">s</span>): ${{subTotal}}
+        Subtotal ({{itemsCnt}} item<span *ngIf="itemsCnt>1">s</span>): ${{subTotal | number: '1.2-2'}}
       </h5>
       <button mat-raised-button (click)="updateCart()">
-        Update Your Cart
+        Update Cart
       </button>
       <button mat-raised-button color="accent" routerLink="/checkout">
         Proceed to Checkout
