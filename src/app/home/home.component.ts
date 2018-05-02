@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
         return;
       this.cart.push({pid: PID, quantity: 1});
     }
-    this.httpClient.post(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart`, {email: this.email, items: this.cart})
+    this.httpClient.post(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart`, {email: this.email, items: this.cart}, {observe: 'response'})
     .subscribe(
       (data) => console.log(data)
     );    
