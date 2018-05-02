@@ -9,6 +9,8 @@ export interface Order{
     products: CartItem[];
     total_prices: number;
     status: string;
+    date: string;
+    orderNumber: string;
 }
 
 export interface User{

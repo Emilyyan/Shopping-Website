@@ -98,13 +98,13 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  viewDetail = function(order_id){
-    console.log(order_id);
+  viewDetail = function(order_number){
+    console.log(order_number);
     const dialogRef = this.dialog.open(OrderDetailComponent, {
       height: '60%',
       width: '60%',
       data: {
-        order_id: order_id
+        order_number: order_number
       }
     });
 
