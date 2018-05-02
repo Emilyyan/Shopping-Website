@@ -74,7 +74,7 @@ app.post('/register-users', function (req, res) {
 			  dbo.collection("users").insertOne(myobj, function(err, result) {
 	            if(err)
 	            	throw err;
-	            res.redirect('/dashboard');
+	            res.redirect('./dashboard');
 	        	db.close();
 			});
         
