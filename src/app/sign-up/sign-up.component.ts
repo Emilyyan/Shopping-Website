@@ -25,14 +25,17 @@ export class SignUpComponent{
   onSubmit = function(user) {
     console.log(user);
     if (this.email.valid) {
+      console.log(user.lastName);
+      console.log(this.email.value);
       //hash logic may go here
-
-     this.httpClient.post(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users`, {email: "testing@gmail.com", first_name: "post", last_name: "hihi", password: "123456"})
+     this.httpClient.post(`/register-users`, {email: this.email.value, first_name: user.firstName, last_name: user.lastName, password: user.password})
       .subscribe(
         res => console.log(res)
       );
       
     }
+    else
+      console.log("fail");
   }
 
 }

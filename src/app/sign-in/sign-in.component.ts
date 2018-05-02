@@ -25,14 +25,13 @@ export class SignInComponent{
   constructor(private httpClient:HttpClient){  }
 
   onSubmit = function(user) {
-    this.httpClient.get(`/get-users`)
+    this.httpClient.post(`/login-users`, {email: this.email.value, password: user.password})
     .subscribe(
       (data:any[]) => {
         if(data.length) {
-          console.log(user.password);
-          this.firstName = data[0].firstName;
-          this.lasttName = data[0].lastName;
-          console.log(this.firstName+this.lastName);
+          this.firstName = data[0].first_name;
+          this.lastName = data[0].last_name;
+          console.log(this.first_name + " " + this.last_name);
         }
       }
     )

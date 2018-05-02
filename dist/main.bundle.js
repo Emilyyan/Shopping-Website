@@ -807,13 +807,12 @@ var SignInComponent = /** @class */ (function () {
         this.lastName = "";
         this.onSubmit = function (user) {
             var _this = this;
-            this.httpClient.get("/get-users")
+            this.httpClient.post("/login-users", { email: this.email.value, password: user.password })
                 .subscribe(function (data) {
                 if (data.length) {
-                    console.log(user.password);
-                    _this.firstName = data[0].firstName;
-                    _this.lasttName = data[0].lastName;
-                    console.log(_this.firstName + _this.lastName);
+                    _this.firstName = data[0].first_name;
+                    _this.lastName = data[0].last_name;
+                    console.log(_this.first_name + " " + _this.last_name);
                 }
             });
         };
@@ -880,10 +879,14 @@ var SignUpComponent = /** @class */ (function () {
         this.onSubmit = function (user) {
             console.log(user);
             if (this.email.valid) {
+                console.log(user.lastName);
+                console.log(this.email.value);
                 //hash logic may go here
-                this.httpClient.post("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users", { email: "testing@gmail.com", first_name: "post", last_name: "hihi", password: "123456" })
+                this.httpClient.post("/register-users", { email: this.email.value, first_name: user.firstName, last_name: user.lastName, password: user.password })
                     .subscribe(function (res) { return console.log(res); });
             }
+            else
+                console.log("fail");
         };
     }
     //email validation function
