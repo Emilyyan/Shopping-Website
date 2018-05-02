@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { StockAlertComponent } from './stock-alert/stock-alert.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -57,7 +58,6 @@ import {
 } from '@angular/material';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +69,8 @@ import {
     ProductDetailComponent,
     DashboardComponent,
     CheckoutComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    StockAlertComponent
   ],
   imports: [
     BrowserModule,
@@ -104,7 +105,8 @@ import {
   entryComponents: [
     SignInComponent, 
     SignUpComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    StockAlertComponent
   ]
 })
 export class AppModule { }

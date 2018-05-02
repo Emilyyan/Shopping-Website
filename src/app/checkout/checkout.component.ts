@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {NgForm} from '@angular/forms';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { FormControl } from '@angular/forms/src/model';
-import {User, Order} from '../interfaces';
+import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, AbstractControl } from '@angular/forms/src/model';
+import { User, CartItem, Order, Address } from '../interfaces';
 
 @Component({
   selector: 'app-checkout',
@@ -11,10 +11,14 @@ import {User, Order} from '../interfaces';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  // User object retrieved from server
   profile: User;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  cart: CartItem[];
+  // Initialize the Order object to be sent to server
+  order: Order = {products: this.cart, shipping: null, status: "processing"};
+  formGroup: FormGroup;
 
+  /*2-way binding form data*/
   fname: string;
   lname: string;
   addr1: string;
@@ -23,6 +27,73 @@ export class CheckoutComponent implements OnInit {
   city: string;
   zip: number;
   phone: number;
+  /* Returns a FormArray with the name 'formArray' */
+  get formArray(): AbstractControl | null {
+    return this.formGroup.get('formArray');
+  }
+
+  constructor(private _formBuilder: FormBuilder, private httpClient:HttpClient) { }
+
+  ngOnInit() {
+    this.formGroup = this._formBuilder.group({
+      formArray: this._formBuilder.array([
+        this._formBuilder.group({
+          fname: ['', Validators.required],
+          lname: ['', Validators.required],
+          state: ['', Validators.required],
+          city: ['', Validators.required],
+          addr1: ['', Validators.required],
+          addr2: [''],
+          zip: ['', Validators.required],
+          phone: ['', Validators.required]
+        }),
+        this._formBuilder.group({
+          payment: ['', Validators.required]
+        })
+      ])
+    });
+
+    /* Get saved address for a user email account */
+    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users?email=sp@gmail.com`)
+    .subscribe(
+      (data:any[]) => {
+        if(data.length) {
+          this.profile = data[0];
+        }
+      },
+      error => console.log("Error: ", error),
+      () => { }
+    );
+
+    /* Get cart items for a user email account */
+    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart?email=sp@gmail.com`)
+    .subscribe(
+      (data: any[]) => {
+        if(data.length) {
+          // add cart items to the order
+          this.order.products = data[0].items;
+          this.cart = data[0].items;
+        }
+      }
+    );
+  }
+  
+
+  onSubmit(f: NgForm){
+    // validate the form on submission
+    if(f.invalid === false){
+      let formAddress = {addr_1: this.addr1, addr_2: this.addr2, state: this.selectedState, city: this.city, zip: this.zip, phone: this.phone};
+      // generate an order
+      this.order.shipping = formAddress;
+      console.log(this.order);
+      this.httpClient.post(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Orders`, this.order)
+      .subscribe(
+        res => {},
+        error => console.log(error),
+        () => {}
+      ); 
+    }
+  }
 
   private fillAddress(){
     this.fname = this.profile.firstName;
@@ -33,53 +104,6 @@ export class CheckoutComponent implements OnInit {
     this.city = this.profile.address.city;
     this.zip = this.profile.address.zip;
     this.phone = this.profile.address.phone;
-  }
-
-  constructor(private _formBuilder: FormBuilder, private httpClient:HttpClient) { }
-
-  ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      fname: ['', Validators.required],
-      lname: ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
-      addr: ['', Validators.required],
-      zip: ['', Validators.required],
-      phone: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-
-    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users?id=3`)
-    .subscribe(
-      (data:any[]) => {
-        if(data.length) {
-          this.profile = data[0];
-        }
-      },
-      error => console.log("Error: ", error),
-      () => {
- 
-      }
-    )
-  }
-  order: Order;
-  /*export interface Order{
-      products: CartItem[];
-      total_prices: number;
-      status: string;
-  }*/
-  onSubmit(f: NgForm){
-    if(f.invalid){
-      this.httpClient.post(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Order`, this.order)
-      .subscribe(
-        res => console.log(res),
-        error => console.log(error),
-        () => {
-        }
-      ); 
-    }
   }
   
   

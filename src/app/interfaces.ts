@@ -1,14 +1,21 @@
+/*
+    operator ? for optional fields
+ */
 export interface CartItem {
-  id: number;
-  product: Product;
+  pid: number;
   quantity: number;
-  price: number; /* can be deleted */
+  name?: string;
+  price?: number;
+  stock?: number;
 }
 
-export interface Order{
+export interface Order{   
+    orderNumber?: number;
+    date?: string;
     products: CartItem[];
-    total_prices: number;
+    totalPrice?: number;
     status: string;
+    shipping: Address;
 }
 
 export interface User{
@@ -22,7 +29,7 @@ export interface User{
 
 export interface Address{
     addr_1: string;
-    addr_2: string;
+    addr_2?: string;
     state: string;
     city: string;
     zip: number;
@@ -33,8 +40,8 @@ export interface Product {
     id: number;
     name: string;
     price: number;
-    stock: number;
-    desc: string;
-    img: string;
+    stock?: number;
+    desc?: string;
+    img?: string;
   }
   
