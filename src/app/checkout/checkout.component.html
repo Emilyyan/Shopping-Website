@@ -2,11 +2,11 @@
 
   <h4>Checkout</h4>
 
-  <mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper">
-    <mat-step [stepControl]="firstFormGroup">
-      <h5>Shipping</h5>
-      <p>(required fields *)</p>
-      <form [formGroup]="firstFormGroup" #f1="ngForm" (ngSubmit)="onSubmit(f1)">
+  <form [formGroup]="formGroup" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <mat-horizontal-stepper #stepper="matHorizontalStepper" formArrayName="formArray" linear>
+      <mat-step formGroupName="0" [stepControl]="formArray.get([0])">
+        <h5>Shipping</h5>
+        <p>(required fields *)</p>
         <ng-template matStepLabel>Shipping Info</ng-template>
         <mat-form-field>
           <input matInput placeholder="First name" formControlName="fname" [(ngModel)]="fname" required>
@@ -16,10 +16,10 @@
         </mat-form-field>
         <br/>
         <mat-form-field>
-          <input matInput placeholder="Address 1" formControlName="addr" [(ngModel)]="addr1" required>
+          <input matInput placeholder="Address 1" formControlName="addr1" [(ngModel)]="addr1" required>
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Address 2" [(value)]="addr2">
+            <input matInput placeholder="Address 2" formControlName="addr2" [(ngModel)]="addr2">
           </mat-form-field>
         <br/>
         <mat-form-field>
@@ -40,37 +40,59 @@
         </mat-form-field>
         <div>
           <button mat-button (click)="fillAddress()" type="button">Use saved address</button>
-          <button mat-button>Submit</button>
           <button mat-button matStepperNext type="button">Next</button>
         </div>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <h5>Payment</h5>
-      <form [formGroup]="secondFormGroup">
+      </mat-step>
+      <mat-step formGroupName="1" [stepControl]="formArray.get([1])">
+        <h5>Payment</h5>
         <ng-template matStepLabel>Payment Info</ng-template>
         <p>* Sorry! We only accept payment via Paypal by this point.</p>
-        <mat-radio-group formControlName="secondCtrl" required>
-          <mat-radio-button value="1" disabled="true">Credit Card</mat-radio-button>
-          <mat-radio-button value="2">Paypal</mat-radio-button>
+        <mat-radio-group formControlName="payment" required>
+          <mat-radio-button value="credit" disabled="true">Credit Card</mat-radio-button>
+          <mat-radio-button value="paypal">Paypal</mat-radio-button>
         </mat-radio-group>
         <br><br>
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext type="button">Next</button>
         </div>
-      </form>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Place Order</ng-template>
-      <h5>Review Your Order</h5>
-      
-      <div>
-        <button mat-button (click)="onSubmit()">Place your order</button>
-        <button mat-button (click)="stepper.reset()">Clear form</button>
-      </div>
-    </mat-step>
-  </mat-horizontal-stepper>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Place Order</ng-template>
+        <h5>Review Your Order</h5>
+        <div class="reviewbox">
+          <div class="upper">
+              <div class="left">
+                <b>Shipping Address:  </b><br>       
+                {{fname}} {{lname}}<br>
+                {{addr1}}<br>
+                {{addr2}}<br>
+                {{phone}}<br>
+                {{city}}, {{selectedState}}, {{zip}}<br>
+              </div>
+              <div class="right">
+                <b>Payment method: </b> PayPal
+              </div>
+          </div>
+          <div class="lower">
+            <mat-list>
+              <mat-list-item *ngFor="let p of cart">
+                <h3 matLine>PID: {{p.pid}} </h3>
+                <p matLine>
+                  <span>quantity: {{p.quantity}} </span>
+                </p>
+              </mat-list-item>
+            </mat-list>
+          </div>    
+        </div>
+        <div>
+          <button mat-button>Place your order</button>
+          <button mat-button (click)="stepper.reset()">Clear form</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+  
 
 </div>
 
