@@ -10,7 +10,8 @@
               ${{product?.price}} &nbsp;&nbsp;&nbsp;
               <span *ngIf="product?.stock > 0" class="in-stock">In Stock</span>
               <span *ngIf="product?.stock == 0" class="out-of-stock">Out of Stock</span>
-              <p>{{product?.desc}}</p>
+              <br><br>
+              <p class="descriptions">{{product?.desc}}</p>
           </div>
       </div>
   </div>

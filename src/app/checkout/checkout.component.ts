@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormControl, AbstractControl } from '@angular/forms/src/model';
-import { User, CartItem, Order, Address } from '../interfaces';
+import { User, CartItem, Order, Address, Product } from '../interfaces';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-checkout',
@@ -11,14 +12,19 @@ import { User, CartItem, Order, Address } from '../interfaces';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  // User object retrieved from server
-  profile: User;
+  email: string = "sp@gmail.com"; //logged in user email account (session)
+  profile: User; // User object retrieved from server
   cart: CartItem[];
   // Initialize the Order object to be sent to server
   order: Order = {products: this.cart, shipping: null, status: "processing"};
+  products: Product[] = [];
+  productArray: CartItem[] = [];
   formGroup: FormGroup;
+  subTotal: number = 0;
 
-  /*2-way binding form data*/
+  dataSource = new MatTableDataSource<any>();
+
+  /* 2-way binding FORM data */
   fname: string;
   lname: string;
   addr1: string;
@@ -33,6 +39,8 @@ export class CheckoutComponent implements OnInit {
   }
 
   constructor(private _formBuilder: FormBuilder, private httpClient:HttpClient) { }
+
+  displayedColumns = ['name', 'quantity', 'price'];
 
   ngOnInit() {
     this.formGroup = this._formBuilder.group({
@@ -54,7 +62,7 @@ export class CheckoutComponent implements OnInit {
     });
 
     /* Get saved address for a user email account */
-    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users?email=sp@gmail.com`)
+    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users?email=${this.email}`)
     .subscribe(
       (data:any[]) => {
         if(data.length) {
@@ -65,8 +73,8 @@ export class CheckoutComponent implements OnInit {
       () => { }
     );
 
-    /* Get cart items for a user email account */
-    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart?email=sp@gmail.com`)
+    /* Get cart items for a user email account 
+    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart?email=${this.email}`)
     .subscribe(
       (data: any[]) => {
         if(data.length) {
@@ -75,9 +83,77 @@ export class CheckoutComponent implements OnInit {
           this.cart = data[0].items;
         }
       }
-    );
+    );*/
+    this.getCart(this.email).then(_ =>{
+      return this.getProducts();
+    }).then(_ =>{
+      for(let p of this.cart){
+        let obj = this.getProductDetail(p.pid);
+        let citem: CartItem = { pid: p.pid, quantity: p.quantity, name: obj.name, price: obj.price };
+        this.productArray.push(citem);
+        this.subTotal += citem.quantity * citem.price;
+      }
+      this.dataSource.data = this.productArray;
+    });
+
   }
   
+  /* 
+    Make a GET request to retrieve all cart items of a user from server
+    Given the user email, would return a promise.
+  */
+  private getCart(email: string){
+    let promise = new Promise((resolve, reject) => {
+      let apiURL = `https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart?email=${email}`;
+      this.httpClient.get(apiURL)
+        .toPromise()
+        .then(
+          (data: any[]) => {
+            if(data.length) {
+              // add cart items to the order
+              this.order.products = data[0].items;
+              this.cart = data[0].items;
+            }
+            resolve();
+          },
+          err => {
+            reject();
+          }
+        );
+    });
+    return promise;
+  }
+
+  /* 
+    Make a GET request to retrieve a list of products from server
+    Would return a promise.
+  */
+  private getProducts(){
+    let promise = new Promise((resolve, reject) => {
+      let apiURL = `https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Products`;
+      this.httpClient.get(apiURL)
+        .toPromise()
+        .then(
+          (data:any[]) => {
+            this.products = data;
+            resolve();
+          },
+          err => {
+            reject();
+          }
+        );
+    });
+    return promise;
+  }
+
+  /**
+   * Given the product id,
+   * Would return an object containing all details for that product
+   */
+  private getProductDetail(pid: number){
+    let index = this.products.findIndex(x => x.id === pid);
+    return this.products[index];
+  }
 
   onSubmit(f: NgForm){
     // validate the form on submission

@@ -25,3 +25,6 @@ mat-grid-tile {
 .out-of-stock{
     color: #d32f2f;
 }
+.descriptions{
+    text-align: start;
+}
