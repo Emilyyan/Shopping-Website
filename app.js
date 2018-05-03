@@ -49,11 +49,14 @@ var sessionChecker = (req, res, next) => {
 
 // signup, insert a document to the database
 
-
+/*
 app.use(function(req, res) {
     res.sendFile(__dirname + '/dist/index.html');
 });
-
+*/
+app.get('/*', function (req, res, next) {
+    res.sendFile(__dirname + '/dist/index.html');
+});
 
 
 /*
