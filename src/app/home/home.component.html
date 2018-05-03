@@ -17,7 +17,6 @@
             <span *ngIf="p.stock > 0" class="in-stock">In Stock</span>
             <span *ngIf="p.stock == 0" class="out-of-stock">Out of Stock</span>
           </mat-card-subtitle>
-          <p>{{p.desc}}</p>
         </mat-card-content>
         <mat-card-actions>
           <button mat-button color="primary" (click)="openDetail(p.id)">Details
