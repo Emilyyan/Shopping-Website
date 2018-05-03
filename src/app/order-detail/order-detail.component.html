@@ -1,11 +1,36 @@
 <p>ORDER DETAIL</p>
 <mat-divider></mat-divider>
 
-<div class="row">
-  <span class="thick" >Order Number:</span>
-  <span >{{data.order_number}}</span>
+<div class="page-container">
+  <div class="left-container">
+    <div class="row">
+      <span class="thick" >Order Number:</span>
+      <span >{{data?.order_number}}</span>
+    </div>
+
+    <div class="row">
+      <span class="thick" >Status:</span>
+      <span >{{order?.status}}</span>
+    </div>
+  </div>
+
+  <div class="right-container">
+    <div class="row">
+      <span class="thick" >Shipping Address:</span>
+    </div>
+    <div>
+      {{order?.shipping.addr_1}}<br>
+      {{order?.shipping.addr_2}}<br>
+      {{order?.shipping.city}}, {{order?.shipping.state}}, {{order?.shipping.zip}}<br>
+      {{order?.shipping.phone}}<br>
+    </div>
+  </div>
 </div>
 
-<div>
-  {{order.status}}
+
+<div class="row">
+    <span class="thick" >Products:</span>
+  </div>
+ <div *ngFor="let p of productArray">
+      <div>{{p?.name}}, {{p?.quantity}}, {{p?.price}}
 </div>
