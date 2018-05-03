@@ -14,6 +14,8 @@ app.use(require('body-parser').urlencoded({
 app.use(express.static('dist'));
 
 
+//app.set('view engine', 'jade');
+
 //app.use(cookieParser());
 
 /*
@@ -26,10 +28,56 @@ app.use(session({
         expires: 600000
     }
 }));
+
+app.use((req, res, next) => {
+    if (req.cookies.user_sid && !req.session.user) {
+        res.clearCookie('user_sid');        
+    }
+    next();
+});
+
+// middleware function to check for logged-in users
+
+var sessionChecker = (req, res, next) => {
+    if (req.session.user && req.cookies.user_sid) {
+        res.redirect('/dashboard');
+    } else {
+        next();
+    }    
+};
 */
 
-
 // signup, insert a document to the database
+
+
+app.use(function(req, res) {
+    res.sendFile(__dirname + '/dist/index.html');
+});
+
+
+
+/*
+app.route('/signup')
+    .get(sessionChecker, (req, res) => {
+        res.sendFile(__dirname + '/public/signup.html');
+    })
+    .post((req, res) => {
+        User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password
+        })
+        .then(user => {
+            req.session.user = user.dataValues;
+            res.redirect('/dashboard');
+        })
+        .catch(error => {
+            res.redirect('/signup');
+        });
+    });
+
+*/
+
 
 app.post('/register-users', function (req, res) {
    var myobj = req.body;
@@ -47,10 +95,7 @@ app.post('/register-users', function (req, res) {
     if(err) throw err;
         console.log("connected");
         var dbo = db.db("project");
-        if(count < 4){
-             res.status(400).json(myobj);
-        }
-        else {
+        
 
         /*
 			bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
@@ -74,13 +119,15 @@ app.post('/register-users', function (req, res) {
 			  dbo.collection("users").insertOne(myobj, function(err, result) {
 	            if(err)
 	            	throw err;
-	            res.redirect('./dashboard');
+	            res.status(200).json(result);
+	            console.log(result);
+	            //res.redirect('/dashboard');
 	        	db.close();
 			});
         
             
         });
-        }
+        
       
     });
 
@@ -140,6 +187,13 @@ app.post('/login-users', function (req, res) {
         
       
     });
+
+
+
+// for testing 
+
+
+
 
 /*
 

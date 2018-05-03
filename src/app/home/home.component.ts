@@ -29,13 +29,15 @@ export class HomeComponent implements OnInit {
       }
     );
 
-    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart?email=${this.email}`)
+    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart?email=${this.email}`, {observe: 'response'})
     .subscribe(
-      (data:any[]) => {
-        if(data.length) {
-          this.cart = data[0].items;
-          console.log(this.cart);
-        }
+      (data) => {
+        console.log(data.status);
+        //if(data.body[0].length) {
+        this.cart = data.body[0].items;
+          //console.log(data.body[0]);
+          //console.log(this.cart);
+        //}
       }
     );
   }
@@ -68,6 +70,7 @@ export class HomeComponent implements OnInit {
    */
   private addToCart(PID: number){
     //find quantity of product with pid
+    //console.log(this.cart);
     let idx = this.cart.findIndex(x => x.pid === PID);
     //if that item wasn't in cart => check stock, then add to cart with quantity 1  
     if(idx >= 0){
@@ -80,7 +83,7 @@ export class HomeComponent implements OnInit {
         return;
       this.cart.push({pid: PID, quantity: 1});
     }
-    this.httpClient.post(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart`, {email: this.email, items: this.cart}, {observe: 'response'})
+    this.httpClient.post(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart`, {email: this.email, items: this.cart})
     .subscribe(
       (data) => console.log(data)
     );    

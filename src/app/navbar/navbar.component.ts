@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
 import { SignInComponent } from '../sign-in/sign-in.component';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 
@@ -9,10 +10,20 @@ import { SignUpComponent } from '../sign-up/sign-up.component';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit{
-  ngOnInit() {
-  }
+  email: string = "sp@gmail.com";
+  statusCode: number;
+  constructor(private httpClient:HttpClient, public dialog: MatDialog) {}
 
-  constructor(public dialog: MatDialog) {}
+  ngOnInit() {
+    //retrieve status code to decide if the user has logged in
+    this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users?email=${this.email}`, {observe: 'response'})
+    .subscribe(
+      (data) => {
+        //console.log(data.status);
+        this.statusCode = data.status;
+      }
+    );
+  }
 
   openSignin() {
     const dialogRef = this.dialog.open(SignInComponent, {

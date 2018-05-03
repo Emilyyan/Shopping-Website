@@ -221,7 +221,7 @@ module.exports = ".content{\n    width: 90%;\n    margin: 6em auto;\n}\n.upper{\
 /***/ "./src/app/checkout/checkout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content\">\n\n  <h4>Checkout</h4>\n\n  <form [formGroup]=\"formGroup\" #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\">\n    <mat-horizontal-stepper #stepper=\"matHorizontalStepper\" formArrayName=\"formArray\" linear>\n      <mat-step formGroupName=\"0\" [stepControl]=\"formArray.get([0])\">\n        <h5>Shipping</h5>\n        <p>(required fields *)</p>\n        <ng-template matStepLabel>Shipping Info</ng-template>\n        <mat-form-field>\n          <input matInput placeholder=\"First name\" formControlName=\"fname\" [(ngModel)]=\"fname\" required>\n        </mat-form-field>\n        <mat-form-field>\n          <input matInput placeholder=\"Last name\" formControlName=\"lname\" [(ngModel)]=\"lname\" required>\n        </mat-form-field>\n        <br/>\n        <mat-form-field>\n          <input matInput placeholder=\"Address 1\" formControlName=\"addr1\" [(ngModel)]=\"addr1\" required>\n        </mat-form-field>\n        <mat-form-field>\n            <input matInput placeholder=\"Address 2\" formControlName=\"addr2\" [(ngModel)]=\"addr2\">\n          </mat-form-field>\n        <br/>\n        <mat-form-field>\n          <mat-select placeholder=\"Choose your state\" formControlName=\"state\" [(ngModel)]=\"selectedState\" required>\n            <mat-option *ngFor=\"let state of states\" [value]=\"state\">{{state}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n        <mat-form-field>\n          <input matInput placeholder=\"City\" formControlName=\"city\" [(ngModel)]=\"city\" required>\n        </mat-form-field>\n        <br>\n        <mat-form-field>\n          <input matInput #zipcode placeholder=\"Zip Code\" formControlName=\"zip\" maxlength=\"5\" [(ngModel)]=\"zip\" required>\n          <mat-hint align=\"end\">{{zipcode.value.length}} / 5</mat-hint>\n        </mat-form-field>\n        <mat-form-field>\n          <input type=\"tel\" matInput placeholder=\"Phone Number\" formControlName=\"phone\" maxlength=\"10\" [(ngModel)]=\"phone\" required>\n        </mat-form-field>\n        <div>\n          <button mat-button (click)=\"fillAddress()\" type=\"button\">Use saved address</button>\n          <button mat-button matStepperNext type=\"button\">Next</button>\n        </div>\n      </mat-step>\n      <mat-step formGroupName=\"1\" [stepControl]=\"formArray.get([1])\">\n        <h5>Payment</h5>\n        <ng-template matStepLabel>Payment Info</ng-template>\n        <p>* Sorry! We only accept payment via Paypal by this point.</p>\n        <mat-radio-group formControlName=\"payment\" required>\n          <mat-radio-button value=\"credit\" disabled=\"true\">Credit Card</mat-radio-button>\n          <mat-radio-button value=\"paypal\">Paypal</mat-radio-button>\n        </mat-radio-group>\n        <br><br>\n        <div>\n          <button mat-button matStepperPrevious type=\"button\">Back</button>\n          <button mat-button matStepperNext type=\"button\">Next</button>\n        </div>\n      </mat-step>\n      <mat-step>\n        <ng-template matStepLabel>Place Order</ng-template>\n        <h5>Review Your Order</h5>\n        <div class=\"reviewbox\">\n          <div class=\"upper\">\n              <div class=\"left\">\n                <b>Shipping Address:  </b><br>       \n                {{fname}} {{lname}}<br>\n                {{addr1}}<br>\n                {{addr2}}<br>\n                {{phone}}<br>\n                {{city}}, {{selectedState}}, {{zip}}<br>\n              </div>\n              <div class=\"right\">\n                <b>Payment method: </b> PayPal\n              </div>\n          </div>\n          <div class=\"lower\">\n            <mat-list>\n              <mat-list-item *ngFor=\"let p of cart\">\n                <h3 matLine>PID: {{p.pid}} </h3>\n                <p matLine>\n                  <span>quantity: {{p.quantity}} </span>\n                </p>\n              </mat-list-item>\n            </mat-list>\n          </div>    \n        </div>\n        <div>\n          <button mat-button>Place your order</button>\n          <button mat-button (click)=\"stepper.reset()\">Clear form</button>\n        </div>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </form>\n  \n\n</div>\n\n"
+module.exports = "<div class=\"content\">\n\n  <h4>Checkout</h4>\n\n  <form [formGroup]=\"formGroup\" #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\">\n    <mat-horizontal-stepper #stepper=\"matHorizontalStepper\" formArrayName=\"formArray\" linear>\n      <mat-step formGroupName=\"0\" [stepControl]=\"formArray.get([0])\">\n        <h5>Shipping</h5>\n        <p>(required fields *)</p>\n        <ng-template matStepLabel>Shipping Info</ng-template>\n        <mat-form-field>\n          <input matInput placeholder=\"First name\" formControlName=\"fname\" [(ngModel)]=\"fname\" required>\n        </mat-form-field>\n        <mat-form-field>\n          <input matInput placeholder=\"Last name\" formControlName=\"lname\" [(ngModel)]=\"lname\" required>\n        </mat-form-field>\n        <br/>\n        <mat-form-field>\n          <input matInput placeholder=\"Address 1\" formControlName=\"addr1\" [(ngModel)]=\"addr1\" required>\n        </mat-form-field>\n        <mat-form-field>\n            <input matInput placeholder=\"Address 2\" formControlName=\"addr2\" [(ngModel)]=\"addr2\">\n          </mat-form-field>\n        <br/>\n        <mat-form-field>\n          <mat-select placeholder=\"Choose your state\" formControlName=\"state\" [(ngModel)]=\"selectedState\" required>\n            <mat-option *ngFor=\"let state of states\" [value]=\"state\">{{state}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n        <mat-form-field>\n          <input matInput placeholder=\"City\" formControlName=\"city\" [(ngModel)]=\"city\" required>\n        </mat-form-field>\n        <br>\n        <mat-form-field>\n          <input matInput #zipcode placeholder=\"Zip Code\" formControlName=\"zip\" maxlength=\"5\" [(ngModel)]=\"zip\" required>\n          <mat-hint align=\"end\">{{zipcode.value.length}} / 5</mat-hint>\n        </mat-form-field>\n        <mat-form-field>\n          <input type=\"tel\" matInput placeholder=\"Phone Number\" formControlName=\"phone\" maxlength=\"10\" [(ngModel)]=\"phone\" required>\n        </mat-form-field>\n        <div>\n          <button mat-button (click)=\"fillAddress()\" type=\"button\">Use saved address</button>\n          <button mat-button matStepperNext type=\"button\">Next</button>\n        </div>\n      </mat-step>\n      <mat-step formGroupName=\"1\" [stepControl]=\"formArray.get([1])\">\n        <h5>Payment</h5>\n        <ng-template matStepLabel>Payment Info</ng-template>\n        <p>* Sorry! We only accept payment via Paypal by this point.</p>\n        <mat-radio-group formControlName=\"payment\" required>\n          <mat-radio-button value=\"credit\" disabled=\"true\">Credit Card</mat-radio-button>\n          <mat-radio-button value=\"paypal\">Paypal</mat-radio-button>\n        </mat-radio-group>\n        <br><br>\n        <div>\n          <button mat-button matStepperPrevious type=\"button\">Back</button>\n          <button mat-button matStepperNext type=\"button\">Next</button>\n        </div>\n      </mat-step>\n      <mat-step>\n        <ng-template matStepLabel>Place Order</ng-template>\n        <h5>Review Your Order</h5>\n        <div class=\"reviewbox\">\n          <div class=\"upper\">\n              <div class=\"left\">\n                <b>Shipping Address: </b><br>       \n                {{fname}} {{lname}}<br>\n                {{addr1}}<br>\n                {{addr2}}<br>\n                {{phone}}<br>\n                {{city}}, {{selectedState}}, {{zip}}<br>\n              </div>\n              <div class=\"right\">\n                <b>Payment method: </b> PayPal\n              </div>\n          </div>\n          <div class=\"lower\">\n            <mat-table #table [dataSource]=\"dataSource\">\n              <!-- Name Column -->\n              <ng-container matColumnDef=\"name\">\n                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>\n                <mat-cell *matCellDef=\"let element\"> {{element.name}} </mat-cell>\n                </ng-container>\n              <!-- Quantity Column -->\n              <ng-container matColumnDef=\"quantity\">\n                <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>\n                <mat-cell *matCellDef=\"let element\">{{element.quantity}}</mat-cell>\n              </ng-container>\n              <!-- Price Column -->\n              <ng-container matColumnDef=\"price\">\n                <mat-header-cell *matHeaderCellDef> Unit Price </mat-header-cell>\n                <mat-cell *matCellDef=\"let element\"> ${{element.price}} </mat-cell>\n              </ng-container>\n            \n              <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n              <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n            </mat-table>\n            <br>\n            <h5>Subtotal: $ {{subTotal}}</h5>\n          </div>    \n          <br>\n        </div>\n        <div>\n          <button mat-button (click)=\"stepper.reset()\">Clear form</button>\n          <button mat-button>Place your order</button>\n        </div>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </form>\n  \n\n</div>\n\n"
 
 /***/ }),
 
@@ -233,6 +233,7 @@ module.exports = "<div class=\"content\">\n\n  <h4>Checkout</h4>\n\n  <form [for
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material_table__ = __webpack_require__("./node_modules/@angular/material/esm5/table.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -245,13 +246,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CheckoutComponent = /** @class */ (function () {
     function CheckoutComponent(_formBuilder, httpClient) {
         this._formBuilder = _formBuilder;
         this.httpClient = httpClient;
+        this.email = "sp@gmail.com"; //logged in user email account (session)
         // Initialize the Order object to be sent to server
         this.order = { products: this.cart, shipping: null, status: "processing" };
+        this.products = [];
+        this.productArray = [];
+        this.subTotal = 0;
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material_table__["a" /* MatTableDataSource */]();
         this.addr2 = "";
+        this.displayedColumns = ['name', 'quantity', 'price'];
         this.states = [
             'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
             'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
@@ -290,21 +298,85 @@ var CheckoutComponent = /** @class */ (function () {
             ])
         });
         /* Get saved address for a user email account */
-        this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users?email=sp@gmail.com")
+        this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users?email=" + this.email)
             .subscribe(function (data) {
             if (data.length) {
                 _this.profile = data[0];
             }
         }, function (error) { return console.log("Error: ", error); }, function () { });
-        /* Get cart items for a user email account */
-        this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart?email=sp@gmail.com")
-            .subscribe(function (data) {
-            if (data.length) {
-                // add cart items to the order
-                _this.order.products = data[0].items;
-                _this.cart = data[0].items;
+        /* Get cart items for a user email account
+        this.httpClient.get(`https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart?email=${this.email}`)
+        .subscribe(
+          (data: any[]) => {
+            if(data.length) {
+              // add cart items to the order
+              this.order.products = data[0].items;
+              this.cart = data[0].items;
             }
+          }
+        );*/
+        this.getCart(this.email).then(function (_) {
+            return _this.getProducts();
+        }).then(function (_) {
+            for (var _i = 0, _a = _this.cart; _i < _a.length; _i++) {
+                var p = _a[_i];
+                var obj = _this.getProductDetail(p.pid);
+                var citem = { pid: p.pid, quantity: p.quantity, name: obj.name, price: obj.price };
+                _this.productArray.push(citem);
+                _this.subTotal += citem.quantity * citem.price;
+            }
+            _this.dataSource.data = _this.productArray;
         });
+    };
+    /*
+      Make a GET request to retrieve all cart items of a user from server
+      Given the user email, would return a promise.
+    */
+    CheckoutComponent.prototype.getCart = function (email) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            var apiURL = "https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart?email=" + email;
+            _this.httpClient.get(apiURL)
+                .toPromise()
+                .then(function (data) {
+                if (data.length) {
+                    // add cart items to the order
+                    _this.order.products = data[0].items;
+                    _this.cart = data[0].items;
+                }
+                resolve();
+            }, function (err) {
+                reject();
+            });
+        });
+        return promise;
+    };
+    /*
+      Make a GET request to retrieve a list of products from server
+      Would return a promise.
+    */
+    CheckoutComponent.prototype.getProducts = function () {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            var apiURL = "https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Products";
+            _this.httpClient.get(apiURL)
+                .toPromise()
+                .then(function (data) {
+                _this.products = data;
+                resolve();
+            }, function (err) {
+                reject();
+            });
+        });
+        return promise;
+    };
+    /**
+     * Given the product id,
+     * Would return an object containing all details for that product
+     */
+    CheckoutComponent.prototype.getProductDetail = function (pid) {
+        var index = this.products.findIndex(function (x) { return x.id === pid; });
+        return this.products[index];
     };
     CheckoutComponent.prototype.onSubmit = function (f) {
         // validate the form on submission
@@ -352,7 +424,7 @@ module.exports = ".demo-tab-group {\n    border: 1px solid #e8e8e8;\n  }\n  \n.d
 /***/ "./src/app/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"text-align: center;\">\n  <div class=\"content\">\n    <mat-card class=\"outline\">\n        <mat-card-content>\n          <h2 class=\"example-h2\">Hi</h2>\n          <mat-tab-group class=\"demo-tab-group\">\n            <mat-tab label=\"Account Information\">\n              <div class=\"demo-tab-content\"  style=\"width:80%\">          \n                <form [formGroup]=\"formGroup2\" #f=\"ngForm\" (ngSubmit)=\"update(f.value)\"> \n                  <mat-list>\n                    <mat-list-item class=\"row\">\n                          <mat-form-field class=\"half-width\">\n                            <input matInput formControlName=\"firstName\" placeholder=\"First Name\" [(ngModel)]=\"user.firstName\" required>\n                          </mat-form-field>\n                    </mat-list-item>\n                    <mat-list-item class=\"row\">\n                          <mat-form-field class=\"half-width\">\n                            <input matInput formControlName=\"lastName\" placeholder=\"Last Name\" [(ngModel)]=\"user.lastName\" required>\n                          </mat-form-field>\n                    </mat-list-item>\n                    <mat-list-item class=\"row\">\n                            <mat-form-field class=\"half-width\">\n                              <input matInput name=\"email\" placeholder=\"Email\" value={{user.email}} disabled>\n                            </mat-form-field>\n                    </mat-list-item>\n                  </mat-list>\n                  <div>\n                      <button mat-raised-button color=\"primary\" type=\"submit\">Update</button>\n                  </div>\n                </form>\n              </div>\n            </mat-tab>\n\n            <mat-tab label=\"Order History\">\n              <div class=\"demo-tab-content\">\n                  <div class=\"example-container mat-elevation-z8\">\n                      <mat-table #table [dataSource]=\"dataSource\">\n                        <ng-container matColumnDef=\"date\">\n                          <mat-header-cell *matHeaderCellDef> Order Date </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\"> {{element.date}} </mat-cell>\n                         </ng-container>\n                        <!-- Position Column -->\n                        <ng-container matColumnDef=\"number\">\n                          <mat-header-cell *matHeaderCellDef> Order Number </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\">{{element.orderNumber}}</mat-cell>\n                        </ng-container>\n                    \n                        <!-- Name Column -->\n                        <ng-container matColumnDef=\"status\">\n                          <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\"> {{element.status}} </mat-cell>\n                        </ng-container>\n\n                        <!-- Symbol Column -->\n                        <ng-container matColumnDef=\"detail\">\n                          <mat-header-cell *matHeaderCellDef> Detail </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\">\n                            <button mat-button color=\"primary\" (click)=\"viewDetail(element.orderNumber)\">View Details\n                            </button>\n                          </mat-cell>\n                        </ng-container>\n                    \n                        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n                      </mat-table>\n                    \n                      <mat-paginator #paginator\n                                     [pageSize]=\"5\"\n                                     [pageSizeOptions]=\"[5, 10, 20]\"\n                                     [showFirstLastButtons]=\"true\">\n                      </mat-paginator>\n                    </div>\n              </div>  \n            </mat-tab>\n\n\n            <mat-tab label=\"Saved Address\">\n                <div class=\"demo-tab-content\"  style=\"width:80%\">          \n                    <form [formGroup]=\"formGroup1\" #f2=\"ngForm\" (ngSubmit)=\"updateAddress(f2.value)\"> \n                      <mat-list>\n                        <mat-list-item class=\"row\">\n                              <mat-form-field class=\"half-width\">\n                                <input matInput formControlName=\"address1\" placeholder=\"Address 1\" [(ngModel)] = \"localAddress.addr_1\" required>\n                              </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                                <mat-form-field class=\"half-width\">\n                                  <input matInput name=\"address2\" placeholder=\"Address 2\" value=\"{{localAddress.addr_2}}\">\n                                </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                            <mat-form-field>\n                                <mat-select placeholder=\"Choose your state\" formControlName=\"state\" [(ngModel)]=\"selectedState\" required>\n                                  <mat-option *ngFor=\"let state of states\" [value]=\"state\">{{state}}</mat-option>\n                                </mat-select>\n                              </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                          <mat-form-field>\n                            <input matInput placeholder=\"City\" formControlName=\"city\" [(ngModel)]=\"localAddress.city\" required>\n                          </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                          <mat-form-field>\n                            <input matInput #zipcode placeholder=\"Zip Code\" formControlName=\"zip\" [(ngModel)]=\"localAddress.zip\" maxlength=\"5\" required>\n                            <mat-hint align=\"end\">{{zipcode.value.length}} / 5</mat-hint>\n                          </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                          <mat-form-field>\n                            <input type=\"tel\" matInput placeholder=\"Phone Number\" formControlName=\"phone\" [(ngModel)]=\"localAddress.phone\" maxlength=\"10\" required>\n                          </mat-form-field>\n                        </mat-list-item>\n                      </mat-list>\n                      <div>\n                          <button mat-raised-button color=\"primary\" type=\"submit\">Update</button>\n                      </div>\n                    </form>\n                  </div>\n            </mat-tab>\n\n            <mat-tab label=\"Tab 4\">\n              <div class=\"demo-tab-content\">\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.\n                Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.\n                In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,\n                feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,\n                orci enim rutrum enim, vel tempor sapien arcu a tellus.\n                <br />\n                <br />\n                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.\n                Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus.\n                In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,\n                feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor,\n                orci enim rutrum enim, vel tempor sapien arcu a tellus.\n              </div>  \n            </mat-tab>\n          </mat-tab-group>\n        </mat-card-content>\n      </mat-card>\n  </div>\n</div>"
+module.exports = "<div style=\"text-align: center;\">\n  <div class=\"content\">\n    <mat-card class=\"outline\">\n        <mat-card-content>\n          <h2 class=\"example-h2\">Hi</h2>\n          <mat-tab-group class=\"demo-tab-group\">\n            <mat-tab label=\"Account Information\">\n              <div class=\"demo-tab-content\"  style=\"width:80%\">          \n                <form [formGroup]=\"formGroup2\" #f=\"ngForm\" (ngSubmit)=\"update(f.value)\"> \n                  <mat-list>\n                    <mat-list-item class=\"row\">\n                          <mat-form-field class=\"half-width\">\n                            <input matInput formControlName=\"firstName\" placeholder=\"First Name\" [(ngModel)]=\"user.firstName\" required>\n                          </mat-form-field>\n                    </mat-list-item>\n                    <mat-list-item class=\"row\">\n                          <mat-form-field class=\"half-width\">\n                            <input matInput formControlName=\"lastName\" placeholder=\"Last Name\" [(ngModel)]=\"user.lastName\" required>\n                          </mat-form-field>\n                    </mat-list-item>\n                    <mat-list-item class=\"row\">\n                            <mat-form-field class=\"half-width\">\n                              <input matInput name=\"email\" placeholder=\"Email\" value={{user.email}} disabled>\n                            </mat-form-field>\n                    </mat-list-item>\n                  </mat-list>\n                  <div>\n                      <button mat-raised-button color=\"primary\" type=\"submit\">Update</button>\n                  </div>\n                </form>\n              </div>\n            </mat-tab>\n\n            <mat-tab label=\"Order History\">\n              <div class=\"demo-tab-content\">\n                  <div class=\"example-container mat-elevation-z8\">\n                      <mat-table #table [dataSource]=\"dataSource\">\n                        <ng-container matColumnDef=\"date\">\n                          <mat-header-cell *matHeaderCellDef> Order Date </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\"> {{element.date}} </mat-cell>\n                         </ng-container>\n                        <!-- Position Column -->\n                        <ng-container matColumnDef=\"number\">\n                          <mat-header-cell *matHeaderCellDef> Order Number </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\">{{element.orderNumber}}</mat-cell>\n                        </ng-container>\n                    \n                        <!-- Name Column -->\n                        <ng-container matColumnDef=\"status\">\n                          <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\"> {{element.status}} </mat-cell>\n                        </ng-container>\n\n                        <!-- Symbol Column -->\n                        <ng-container matColumnDef=\"detail\">\n                          <mat-header-cell *matHeaderCellDef> Detail </mat-header-cell>\n                          <mat-cell *matCellDef=\"let element\">\n                            <button mat-button color=\"primary\" (click)=\"viewDetail(element.orderNumber)\">View Details\n                            </button>\n                          </mat-cell>\n                        </ng-container>\n                    \n                        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n                      </mat-table>\n                    \n                      <mat-paginator #paginator\n                                     [pageSize]=\"5\"\n                                     [pageSizeOptions]=\"[5, 10, 20]\"\n                                     [showFirstLastButtons]=\"true\">\n                      </mat-paginator>\n                    </div>\n              </div>  \n            </mat-tab>\n\n\n            <mat-tab label=\"Saved Address\">\n                <div class=\"demo-tab-content\"  style=\"width:80%\">          \n                    <form [formGroup]=\"formGroup1\" #f2=\"ngForm\" (ngSubmit)=\"updateAddress(f2.value)\"> \n                      <mat-list>\n                        <mat-list-item class=\"row\">\n                              <mat-form-field class=\"half-width\">\n                                <input matInput formControlName=\"address1\" placeholder=\"Address 1\" [(ngModel)] = \"localAddress.addr_1\" required>\n                              </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                                <mat-form-field class=\"half-width\">\n                                  <input matInput name=\"address2\" placeholder=\"Address 2\" value=\"{{localAddress.addr_2}}\">\n                                </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                            <mat-form-field>\n                                <mat-select placeholder=\"Choose your state\" formControlName=\"state\" [(ngModel)]=\"selectedState\" required>\n                                  <mat-option *ngFor=\"let state of states\" [value]=\"state\">{{state}}</mat-option>\n                                </mat-select>\n                              </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                          <mat-form-field>\n                            <input matInput placeholder=\"City\" formControlName=\"city\" [(ngModel)]=\"localAddress.city\" required>\n                          </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                          <mat-form-field>\n                            <input matInput #zipcode placeholder=\"Zip Code\" formControlName=\"zip\" [(ngModel)]=\"localAddress.zip\" maxlength=\"5\" required>\n                            <mat-hint align=\"end\">{{zipcode.value.length}} / 5</mat-hint>\n                          </mat-form-field>\n                        </mat-list-item>\n                        <mat-list-item class=\"row\">\n                          <mat-form-field>\n                            <input type=\"tel\" matInput placeholder=\"Phone Number\" formControlName=\"phone\" [(ngModel)]=\"localAddress.phone\" maxlength=\"10\" required>\n                          </mat-form-field>\n                        </mat-list-item>\n                      </mat-list>\n                      <div>\n                          <button mat-raised-button color=\"primary\" type=\"submit\">Update</button>\n                      </div>\n                    </form>\n                  </div>\n            </mat-tab>\n          </mat-tab-group>\n        </mat-card-content>\n      </mat-card>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -388,7 +460,6 @@ var DashboardComponent = /** @class */ (function () {
         this.httpClient = httpClient;
         this._formBuilder = _formBuilder;
         this.dialog = dialog;
-        //user: User;
         this.user = [];
         this.selectedState = "";
         this.localAddress = [];
@@ -413,7 +484,6 @@ var DashboardComponent = /** @class */ (function () {
         this.viewDetail = function (order_number) {
             console.log(order_number);
             var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__order_detail_order_detail_component__["a" /* OrderDetailComponent */], {
-                height: '60%',
                 width: '60%',
                 data: {
                     order_number: order_number
@@ -453,9 +523,7 @@ var DashboardComponent = /** @class */ (function () {
                 _this.localAddress = data[0].address;
                 _this.selectedState = data[0].address.state;
             }
-        }, function (error) { return console.log("Error", error); }
-        //() => {this.xxx();}
-        );
+        }, function (error) { return console.log("Error", error); });
         //order history should be returned from server side after authentication
         //get order info for order history tab
         this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Orders")
@@ -464,9 +532,7 @@ var DashboardComponent = /** @class */ (function () {
                 _this.dataSource.data = data;
                 //console.log(this.dataSource.data);
             }
-        }, function (error) { return console.log("Error", error); }
-        //() => {this.xxx();}
-        );
+        }, function (error) { return console.log("Error", error); });
     };
     DashboardComponent.prototype.ngAfterViewInit = function () {
         this.dataSource.paginator = this.paginator;
@@ -493,14 +559,14 @@ var DashboardComponent = /** @class */ (function () {
 /***/ "./src/app/home/home.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".parent-container{\n    max-width: 90%;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n}\n.example-card {\n    max-width: 250px;\n    min-width: 200px;\n    -ms-flex-preferred-size: 30%;\n        flex-basis: 30%;\n    margin-bottom: 2em;\n}\n.in-stock{\n    color: #2e7b32;\n}\n.out-of-stock{\n    color: #d32f2f;\n}"
+module.exports = ".parent-container{\n    max-width: 90%;\n    margin: 0 auto;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-wrap: wrap;\n        flex-wrap: wrap;\n    -ms-flex-pack: distribute;\n        justify-content: space-around;\n}\n.example-card {\n    max-width: 250px;\n    min-width: 200px;\n    -ms-flex-preferred-size: 30%;\n        flex-basis: 30%;\n    margin-bottom: 2em;\n}\n.in-stock{\n    color: #2e7b32;\n}\n.out-of-stock{\n    color: #d32f2f;\n}\n.game-img{\n    width: 60%;\n}"
 
 /***/ }),
 
 /***/ "./src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--the Homepage component template, written in HTML.-->\n<div style=\"text-align:center\">\n  <div class=\"content\">\n    <span class=\"spacer\"></span>\n    <mat-form-field>\n      <input matInput placeholder=\"Search Items here ...\">\n    </mat-form-field>\n    <button mat-icon-button color=\"primary\"><mat-icon>search</mat-icon></button>\n\n    <div class=\"parent-container\">\n      <mat-card class=\"example-card\" *ngFor=\"let p of products\">\n        <img mat-card-image src={{p.img}} alt=\"Product Image\">\n        <mat-card-content>\n          <mat-card-title>{{p.name}}</mat-card-title>\n          <mat-card-subtitle>\n            ${{p.price}} &nbsp;&nbsp;&nbsp;\n            <span *ngIf=\"p.stock > 0\" class=\"in-stock\">In Stock</span>\n            <span *ngIf=\"p.stock == 0\" class=\"out-of-stock\">Out of Stock</span>\n          </mat-card-subtitle>\n          <p>{{p.desc}}</p>\n        </mat-card-content>\n        <mat-card-actions>\n          <button mat-button color=\"primary\" (click)=\"openDetail(p.id)\">Details\n            <mat-icon>open_in_new</mat-icon>\n          </button>\n          <button mat-button color=\"accent\" (click)=\"addToCart(p.id)\">Add to Cart\n            <mat-icon>add_shopping_cart</mat-icon>\n          </button>\n        </mat-card-actions>\n      </mat-card>\n    </div>\n  </div>  \n</div>"
+module.exports = "<!--the Homepage component template, written in HTML.-->\n<div style=\"text-align:center\">\n  <div class=\"content\">\n    <span class=\"spacer\"></span>\n    <mat-form-field>\n      <input matInput placeholder=\"Search Items here ...\">\n    </mat-form-field>\n    <button mat-icon-button color=\"primary\"><mat-icon>search</mat-icon></button>\n\n    <div class=\"parent-container\">\n      <mat-card class=\"example-card\" *ngFor=\"let p of products\">\n        <img mat-card-image src={{p.img}} class=\"game-img\" alt=\"Product Image\">\n        <mat-card-content>\n          <mat-card-title>{{p.name}}</mat-card-title>\n          <mat-card-subtitle>\n            ${{p.price}} &nbsp;&nbsp;&nbsp;&nbsp;\n            <span *ngIf=\"p.stock > 0\" class=\"in-stock\">In Stock</span>\n            <span *ngIf=\"p.stock == 0\" class=\"out-of-stock\">Out of Stock</span>\n          </mat-card-subtitle>\n        </mat-card-content>\n        <mat-card-actions>\n          <button mat-button color=\"primary\" (click)=\"openDetail(p.id)\">Details\n            <mat-icon>open_in_new</mat-icon>\n          </button>\n          <button mat-button color=\"accent\" (click)=\"addToCart(p.id)\">Add to Cart\n            <mat-icon>add_shopping_cart</mat-icon>\n          </button>\n        </mat-card-actions>\n      </mat-card>\n    </div>\n  </div>  \n</div>"
 
 /***/ }),
 
@@ -543,12 +609,14 @@ var HomeComponent = /** @class */ (function () {
                 _this.products = data;
             }
         });
-        this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart?email=" + this.email)
+        this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Cart?email=" + this.email, { observe: 'response' })
             .subscribe(function (data) {
-            if (data.length) {
-                _this.cart = data[0].items;
-                console.log(_this.cart);
-            }
+            console.log(data.status);
+            //if(data.body[0].length) {
+            _this.cart = data.body[0].items;
+            //console.log(data.body[0]);
+            //console.log(this.cart);
+            //}
         });
     };
     HomeComponent.prototype.openDetail = function (PID) {
@@ -577,6 +645,7 @@ var HomeComponent = /** @class */ (function () {
      */
     HomeComponent.prototype.addToCart = function (PID) {
         //find quantity of product with pid
+        //console.log(this.cart);
         var idx = this.cart.findIndex(function (x) { return x.pid === PID; });
         //if that item wasn't in cart => check stock, then add to cart with quantity 1  
         if (idx >= 0) {
@@ -617,7 +686,7 @@ module.exports = ".fixed-header{\n    /*overflow: auto;*/\n    top: 0;\n    left
 /***/ "./src/app/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <mat-toolbar class=\"fixed-header\" color=\"primary\">\n        <mat-toolbar-row>\n            <a mat-button routerLink=\"/\"><mat-icon>home</mat-icon></a>\n            <button mat-button [matMenuTriggerFor]=\"menu\" >Menu</button>\n            <mat-menu #menu=\"matMenu\" yPosition=\"below\" xPosition=\"after\" overlapTrigger=\"false\">\n                <button mat-menu-item>Item 1</button>\n                <button mat-menu-item>Item 2</button>\n            </mat-menu>\n            \n            <span class=\"spacer\"></span>\n            <a mat-icon-button routerLink=\"/cart\"><mat-icon class=\"mdl-badge\" data-badge=\"6\">shopping_cart</mat-icon></a>\n            <!--<a mat-button routerLink=\"/signin\">Sign In</a>-->\n            <!--<a mat-button routerLink=\"/signup\">Sign Up</a>-->\n            <button mat-button (click)=\"openSignin()\">Sign In</button>\n            <button mat-button (click)=\"openSignup()\">Sign Up</button>\n            \n        </mat-toolbar-row> \n    </mat-toolbar>\n</div>\n<router-outlet></router-outlet>\n\n"
+module.exports = "<div>\n    <mat-toolbar class=\"fixed-header\" color=\"primary\">\n        <mat-toolbar-row>\n            <a mat-button routerLink=\"/\"><mat-icon>home</mat-icon></a>\n            <span class=\"spacer\"></span>\n            <a mat-icon-button routerLink=\"/cart\"><mat-icon>shopping_cart</mat-icon></a>\n            <!-- *ngIf=\"statusCode != 200\" -->\n            <span >\n                <button mat-button (click)=\"openSignin()\">Sign In</button>\n                <button mat-button (click)=\"openSignup()\">Sign Up</button>\n            </span>\n            <span *ngIf=\"statusCode === 200\">\n                <a mat-icon-button routerLink=\"/dashboard\"><mat-icon>account_box</mat-icon></a>\n            </span> \n        </mat-toolbar-row> \n    </mat-toolbar>\n</div>\n<router-outlet></router-outlet>\n\n"
 
 /***/ }),
 
@@ -628,8 +697,9 @@ module.exports = "<div>\n    <mat-toolbar class=\"fixed-header\" color=\"primary
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sign_in_sign_in_component__ = __webpack_require__("./src/app/sign-in/sign-in.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sign_up_sign_up_component__ = __webpack_require__("./src/app/sign-up/sign-up.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__sign_in_sign_in_component__ = __webpack_require__("./src/app/sign-in/sign-in.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sign_up_sign_up_component__ = __webpack_require__("./src/app/sign-up/sign-up.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -643,14 +713,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var NavbarComponent = /** @class */ (function () {
-    function NavbarComponent(dialog) {
+    function NavbarComponent(httpClient, dialog) {
+        this.httpClient = httpClient;
         this.dialog = dialog;
+        this.email = "sp@gmail.com";
     }
     NavbarComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        //retrieve status code to decide if the user has logged in
+        this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Users?email=" + this.email, { observe: 'response' })
+            .subscribe(function (data) {
+            //console.log(data.status);
+            _this.statusCode = data.status;
+        });
     };
     NavbarComponent.prototype.openSignin = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__sign_in_sign_in_component__["a" /* SignInComponent */], {
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__sign_in_sign_in_component__["a" /* SignInComponent */], {
             height: '45%',
             width: '40%'
         });
@@ -659,7 +739,7 @@ var NavbarComponent = /** @class */ (function () {
         });
     };
     NavbarComponent.prototype.openSignup = function () {
-        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__sign_up_sign_up_component__["a" /* SignUpComponent */], {
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__sign_up_sign_up_component__["a" /* SignUpComponent */], {
             height: '45%',
             width: '40%'
         });
@@ -670,7 +750,7 @@ var NavbarComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/navbar/navbar.component.html"),
             styles: [__webpack_require__("./src/app/navbar/navbar.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */]])
     ], NavbarComponent);
     return NavbarComponent;
 }());
@@ -682,14 +762,14 @@ var NavbarComponent = /** @class */ (function () {
 /***/ "./src/app/order-detail/order-detail.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".row{\n    padding-top: 1em;\n}\n\n.thick{\n    font-weight: bold;\n}"
+module.exports = ".row{\n    padding-top: 1em;\n}\n\n.thick{\n    font-weight: bold;\n}\n\n.page-container{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n\n.left-container{\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}\n\n.right-container{\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n}"
 
 /***/ }),
 
 /***/ "./src/app/order-detail/order-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>ORDER DETAIL</p>\n<mat-divider></mat-divider>\n\n<div class=\"row\">\n  <span class=\"thick\" >Order Number:</span>\n  <span >{{data.order_number}}</span>\n</div>\n\n<div>\n  {{order.status}}\n</div>"
+module.exports = "<h5>ORDER DETAILS</h5>\n<mat-divider></mat-divider>\n\n<div class=\"page-container\">\n  <div class=\"left-container\">\n    <div class=\"row\">\n      <span class=\"thick\" >Order Number:</span>\n      <span >{{data?.order_number}}</span>\n    </div>\n\n    <div class=\"row\">\n      <span class=\"thick\" >Status:</span>\n      <span >{{order?.status}}</span>\n    </div>\n  </div>\n\n  <div class=\"right-container\">\n    <div class=\"row\">\n      <span class=\"thick\" >Shipping Address:</span>\n    </div>\n    <div>\n      {{order?.shipping.addr_1}}<br>\n      {{order?.shipping.addr_2}}<br>\n      {{order?.shipping.city}}, {{order?.shipping.state}}, {{order?.shipping.zip}}<br>\n      {{order?.shipping.phone}}<br>\n    </div>\n  </div>\n</div>\n\n\n<div class=\"row\">\n  <span class=\"thick\" >Purchased Items:</span>\n</div>\n\n<mat-table #table [dataSource]=\"dataSource\">\n  <!-- Name Column -->\n  <ng-container matColumnDef=\"name\">\n    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>\n    <mat-cell *matCellDef=\"let element\"> {{element.name}} </mat-cell>\n    </ng-container>\n  <!-- Quantity Column -->\n  <ng-container matColumnDef=\"quantity\">\n    <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>\n    <mat-cell *matCellDef=\"let element\">{{element.quantity}}</mat-cell>\n  </ng-container>\n  <!-- Price Column -->\n  <ng-container matColumnDef=\"price\">\n    <mat-header-cell *matHeaderCellDef> Unit Price </mat-header-cell>\n    <mat-cell *matCellDef=\"let element\"> ${{element.price}} </mat-cell>\n  </ng-container>\n\n  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n  <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n</mat-table>\n<br>\n<b>Subtotal: </b>$ {{subTotal}}\n"
 
 /***/ }),
 
@@ -701,6 +781,7 @@ module.exports = "<p>ORDER DETAIL</p>\n<mat-divider></mat-divider>\n\n<div class
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material_table__ = __webpack_require__("./node_modules/@angular/material/esm5/table.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -716,21 +797,79 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 
+
 var OrderDetailComponent = /** @class */ (function () {
     function OrderDetailComponent(httpClient, data) {
         this.httpClient = httpClient;
         this.data = data;
+        this.products = [];
+        this.productArray = [];
+        this.dataSource = new __WEBPACK_IMPORTED_MODULE_3__angular_material_table__["a" /* MatTableDataSource */]();
+        this.subTotal = 0;
+        this.displayedColumns = ['name', 'quantity', 'price'];
     }
     OrderDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.httpClient.get("https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Orders/?orderNumber=" + this.data.order_number)
-            .subscribe(function (orderInfo) {
-            if (orderInfo.length) {
-                _this.order = orderInfo[0];
-                console.log(_this.order);
+        this.getOrder(this.data.order_number)
+            .then(function (data) {
+            _this.order = data[0];
+            return _this.getProducts();
+        })
+            .then(function (_) {
+            for (var _i = 0, _a = _this.order.products; _i < _a.length; _i++) {
+                var p = _a[_i];
+                var obj = _this.getProductDetail(p.pid);
+                var orderitem = { pid: p.pid, quantity: p.quantity, name: obj.name, price: obj.price };
+                _this.productArray.push(orderitem);
+                _this.subTotal += orderitem.quantity * orderitem.price;
             }
-        }),
-            function (error) { return console.log("Error", error); };
+            _this.dataSource.data = _this.productArray;
+        });
+    };
+    /*
+      Make a GET request to retrieve an order from server
+      Given the order number, would return a promise.
+    */
+    OrderDetailComponent.prototype.getOrder = function (orderNumber) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            var apiURL = "https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Orders?orderNumber=" + orderNumber;
+            _this.httpClient.get(apiURL)
+                .toPromise()
+                .then(function (data) {
+                resolve(data);
+            }, function (err) {
+                reject();
+            });
+        });
+        return promise;
+    };
+    /*
+      Make a GET request to retrieve a list of products from server
+      Would return a promise.
+    */
+    OrderDetailComponent.prototype.getProducts = function () {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            var apiURL = "https://my-json-server.typicode.com/Emilyyan/Shopping-Website/Products";
+            _this.httpClient.get(apiURL)
+                .toPromise()
+                .then(function (data) {
+                _this.products = data;
+                resolve();
+            }, function (err) {
+                reject();
+            });
+        });
+        return promise;
+    };
+    /**
+     * Given the product id,
+     * Would return an object containing all details for that product
+     */
+    OrderDetailComponent.prototype.getProductDetail = function (pid) {
+        var index = this.products.findIndex(function (x) { return x.id === pid; });
+        return this.products[index];
     };
     OrderDetailComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -751,14 +890,14 @@ var OrderDetailComponent = /** @class */ (function () {
 /***/ "./src/app/product-detail/product-detail.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "mat-grid-tile {\n    background: lightblue;\n  }\n\n\n.page-container{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n\n\n.left-container{\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n\n\n.right-container{\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n\n\n.product-img {\n    max-width: 400px;\n}\n\n\n.in-stock{\n    color: #2e7b32;\n}\n\n\n.out-of-stock{\n    color: #d32f2f;\n}"
+module.exports = "mat-grid-tile {\n    background: lightblue;\n  }\n\n\n.page-container{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n\n\n.left-container{\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n\n\n.right-container{\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n}\n\n\n.product-img {\n    max-width: 400px;\n}\n\n\n.in-stock{\n    color: #2e7b32;\n}\n\n\n.out-of-stock{\n    color: #d32f2f;\n}\n\n\n.descriptions{\n    text-align: start;\n}"
 
 /***/ }),
 
 /***/ "./src/app/product-detail/product-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"text-align:center\">\n  \n      <div class=\"page-container\">\n          <div class=\"left-container\">\n             <img class=\"product-img\" src=\"{{product?.img}}\" alt=\"Product Image\">\n          </div>\n\n          <div class=\"right-container\">\n              <mat-card-title>{{product?.name}}</mat-card-title>\n              <mat-card-title>${{product?.price}}</mat-card-title>\n        \n              <span *ngIf=\"product?.stock > 0\" class=\"in-stock\">In Stock</span>\n              <span *ngIf=\"product?.stock == 0\" class=\"out-of-stock\">Out of Stock</span>\n              <p>${{product?.desc}}</p>\n          </div>\n\n      </div>\n  </div>\n"
+module.exports = "<div style=\"text-align:center\">\n  \n      <div class=\"page-container\">\n          <div class=\"left-container\">\n              <img class=\"product-img\" src={{product?.img}} alt=\"Product Image\">\n          </div>\n\n          <div class=\"right-container\">\n              <mat-card-title>{{product?.name}}</mat-card-title>\n              ${{product?.price}} &nbsp;&nbsp;&nbsp;\n              <span *ngIf=\"product?.stock > 0\" class=\"in-stock\">In Stock</span>\n              <span *ngIf=\"product?.stock == 0\" class=\"out-of-stock\">Out of Stock</span>\n              <br><br>\n              <p class=\"descriptions\">{{product?.desc}}</p>\n          </div>\n      </div>\n  </div>\n"
 
 /***/ }),
 
@@ -1041,7 +1180,23 @@ var SignInComponent = /** @class */ (function () {
                     _this.lastName = data[0].last_name;
                     console.log(_this.first_name + " " + _this.last_name);
                 }
-            });
+                /*
+                if(data.length) {
+                  this.firstName = data[0].first_name;
+                  this.lastName = data[0].last_name;
+                  console.log(this.first_name + " " + this.last_name);
+                }
+                  console.log(user.password);
+                  this.firstName = data[0].firstName;
+                  this.lasttName = data[0].lastName;
+                  console.log(this.firstName+this.lastName);
+                }*/
+                //this.firstName = data.body[0].firstName;
+                //this.lasttName = data.body[0].lastName;
+                //response code
+                //console.log(data.status);
+            }),
+                function (error) { return console.log(error); };
         };
     }
     SignInComponent.prototype.getErrorMessage = function () {
@@ -1073,7 +1228,7 @@ module.exports = ".example-container {\n    display: -webkit-box;\n    display: 
 /***/ "./src/app/sign-up/sign-up.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-dialog-content>  \n    <h2 mat-dialog-title>Register with us</h2>\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f.value)\">\n        <mat-form-field class=\"example-container\">\n            <input matInput ngModel name=\"email\" placeholder=\"Enter your email\" [formControl]=\"email\" required>\n            <mat-error *ngIf=\"email.invalid\">{{getErrorMessage()}}</mat-error>\n        </mat-form-field>\n        <mat-form-field>\n            <input matInput ngModel name=\"firstName\" placeholder=\"FirstName\" required>\n        </mat-form-field>\n        <mat-form-field>\n            <input matInput ngModel name=\"lastName\" placeholder=\"LastName\" required>\n        </mat-form-field>\n        <br>\n        <mat-form-field  class=\"example-container\">\n            <input matInput ngModel name=\"password\" placeholder=\"Enter your password\" [type]=\"hide ? 'password' : 'text'\" required>\n            <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n        </mat-form-field>\n\n        <mat-dialog-actions>\n            <button mat-raised-button color=\"primary\" type=\"submit\">Register</button>\n            <button mat-button mat-dialog-close>Cancel</button>\n            <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n            \n        </mat-dialog-actions>\n    </form>\n</mat-dialog-content>\n"
+module.exports = "<mat-dialog-content>  \n    <h2 mat-dialog-title>Register with us</h2>\n    <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f.value)\">\n        <mat-form-field class=\"example-container\">\n            <input matInput ngModel name=\"email\" placeholder=\"Enter your email\" [formControl]=\"email\" required>\n            <mat-error *ngIf=\"email.invalid\">{{getErrorMessage()}}</mat-error>\n        </mat-form-field>\n        <mat-form-field>\n            <input matInput ngModel name=\"firstName\" placeholder=\"FirstName\" required>\n        </mat-form-field>\n        <mat-form-field>\n            <input matInput ngModel name=\"lastName\" placeholder=\"LastName\" required>\n        </mat-form-field>\n        <br>\n        <mat-form-field  class=\"example-container\">\n            <input matInput ngModel name=\"password\" placeholder=\"Enter your password\" [type]=\"hide ? 'password' : 'text'\" required>\n            <mat-icon matSuffix (click)=\"hide = !hide\">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>\n        </mat-form-field>\n\n        <mat-dialog-actions>\n             <button mat-raised-button color=\"primary\" type=\"submit\">Register</button>\n             <button mat-button mat-dialog-close>Cancel</button>\n            <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->\n            \n        </mat-dialog-actions>\n    </form>\n</mat-dialog-content>\n"
 
 /***/ }),
 

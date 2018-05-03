@@ -1,11 +1,56 @@
-<p>ORDER DETAIL</p>
+<h5>ORDER DETAILS</h5>
 <mat-divider></mat-divider>
 
-<div class="row">
-  <span class="thick" >Order Number:</span>
-  <span >{{data.order_number}}</span>
+<div class="page-container">
+  <div class="left-container">
+    <div class="row">
+      <span class="thick" >Order Number:</span>
+      <span >{{data?.order_number}}</span>
+    </div>
+
+    <div class="row">
+      <span class="thick" >Status:</span>
+      <span >{{order?.status}}</span>
+    </div>
+  </div>
+
+  <div class="right-container">
+    <div class="row">
+      <span class="thick" >Shipping Address:</span>
+    </div>
+    <div>
+      {{order?.shipping.addr_1}}<br>
+      {{order?.shipping.addr_2}}<br>
+      {{order?.shipping.city}}, {{order?.shipping.state}}, {{order?.shipping.zip}}<br>
+      {{order?.shipping.phone}}<br>
+    </div>
+  </div>
 </div>
 
-<div>
-  {{order.status}}
+
+<div class="row">
+  <span class="thick" >Purchased Items:</span>
 </div>
+
+<mat-table #table [dataSource]="dataSource">
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+  <!-- Quantity Column -->
+  <ng-container matColumnDef="quantity">
+    <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.quantity}}</mat-cell>
+  </ng-container>
+  <!-- Price Column -->
+  <ng-container matColumnDef="price">
+    <mat-header-cell *matHeaderCellDef> Unit Price </mat-header-cell>
+    <mat-cell *matCellDef="let element"> ${{element.price}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<br>
+<b>Subtotal: </b>$ {{subTotal}}

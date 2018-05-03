@@ -63,7 +63,7 @@
         <div class="reviewbox">
           <div class="upper">
               <div class="left">
-                <b>Shipping Address:  </b><br>       
+                <b>Shipping Address: </b><br>       
                 {{fname}} {{lname}}<br>
                 {{addr1}}<br>
                 {{addr2}}<br>
@@ -75,19 +75,34 @@
               </div>
           </div>
           <div class="lower">
-            <mat-list>
-              <mat-list-item *ngFor="let p of cart">
-                <h3 matLine>PID: {{p.pid}} </h3>
-                <p matLine>
-                  <span>quantity: {{p.quantity}} </span>
-                </p>
-              </mat-list-item>
-            </mat-list>
+            <mat-table #table [dataSource]="dataSource">
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+              <!-- Quantity Column -->
+              <ng-container matColumnDef="quantity">
+                <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.quantity}}</mat-cell>
+              </ng-container>
+              <!-- Price Column -->
+              <ng-container matColumnDef="price">
+                <mat-header-cell *matHeaderCellDef> Unit Price </mat-header-cell>
+                <mat-cell *matCellDef="let element"> ${{element.price}} </mat-cell>
+              </ng-container>
+            
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <br>
+            <h5>Subtotal: $ {{subTotal}}</h5>
           </div>    
+          <br>
         </div>
         <div>
-          <button mat-button>Place your order</button>
           <button mat-button (click)="stepper.reset()">Clear form</button>
+          <button mat-button>Place your order</button>
         </div>
       </mat-step>
     </mat-horizontal-stepper>

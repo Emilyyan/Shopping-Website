@@ -2,19 +2,16 @@
     <mat-toolbar class="fixed-header" color="primary">
         <mat-toolbar-row>
             <a mat-button routerLink="/"><mat-icon>home</mat-icon></a>
-            <button mat-button [matMenuTriggerFor]="menu" >Menu</button>
-            <mat-menu #menu="matMenu" yPosition="below" xPosition="after" overlapTrigger="false">
-                <button mat-menu-item>Item 1</button>
-                <button mat-menu-item>Item 2</button>
-            </mat-menu>
-            
             <span class="spacer"></span>
-            <a mat-icon-button routerLink="/cart"><mat-icon class="mdl-badge" data-badge="6">shopping_cart</mat-icon></a>
-            <!--<a mat-button routerLink="/signin">Sign In</a>-->
-            <!--<a mat-button routerLink="/signup">Sign Up</a>-->
-            <button mat-button (click)="openSignin()">Sign In</button>
-            <button mat-button (click)="openSignup()">Sign Up</button>
-            <button mat-button routerLink="/dashboard">Dashboard</button>
+            <a mat-icon-button routerLink="/cart"><mat-icon>shopping_cart</mat-icon></a>
+            <!-- *ngIf="statusCode != 200" -->
+            <span >
+                <button mat-button (click)="openSignin()">Sign In</button>
+                <button mat-button (click)="openSignup()">Sign Up</button>
+            </span>
+            <span *ngIf="statusCode === 200">
+                <a mat-icon-button routerLink="/dashboard"><mat-icon>account_box</mat-icon></a>
+            </span> 
         </mat-toolbar-row> 
     </mat-toolbar>
 </div>

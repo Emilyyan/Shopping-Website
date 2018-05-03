@@ -13,7 +13,6 @@ import { OrderDetailComponent } from '../order-detail/order-detail.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  //user: User;
   user = [];
   selectedState = "";
   localAddress = [];
@@ -51,7 +50,6 @@ export class DashboardComponent implements OnInit {
         }
       }, 
       error => console.log("Error", error)
-      //() => {this.xxx();}
     );
 
     //order history should be returned from server side after authentication
@@ -65,7 +63,6 @@ export class DashboardComponent implements OnInit {
         }
       }, 
       error => console.log("Error", error)
-      //() => {this.xxx();}
     )
 
   }
@@ -101,7 +98,6 @@ export class DashboardComponent implements OnInit {
   viewDetail = function(order_number){
     console.log(order_number);
     const dialogRef = this.dialog.open(OrderDetailComponent, {
-      height: '60%',
       width: '60%',
       data: {
         order_number: order_number
