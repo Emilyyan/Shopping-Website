@@ -30,6 +30,6 @@ export class NavbarComponent implements OnInit{
       height: '45%',
       width: '40%'
     });
-
   }
+
 }
